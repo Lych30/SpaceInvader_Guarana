@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToMove: {fileID: 315908767}
+  mat: {fileID: 0}
 --- !u!65 &315908769
 BoxCollider:
   m_ObjectHideFlags: 0
