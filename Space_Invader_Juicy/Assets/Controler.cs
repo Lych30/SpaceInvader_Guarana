@@ -16,4 +16,5 @@ public class Controler : MonoBehaviour
         positionX = Mathf.Clamp(positionX,-10,10);
         transform.position = new Vector3(positionX, 0,0);
     }
+   
 }
