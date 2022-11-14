@@ -9,6 +9,8 @@ public class ShootTest : MonoBehaviour
 {
     public float Dmg;
     public ParticleSystem part;
+    public ParticleSystem MuzzleFlash;
+    public ParticleSystem WhiteMuzzleFlash;
     CinemachineImpulseSource impulseSource;
     public List<ParticleCollisionEvent> collisionEvents;
 
@@ -17,6 +19,9 @@ public class ShootTest : MonoBehaviour
      
         impulseSource = GetComponent<CinemachineImpulseSource>();
         part = GetComponent<ParticleSystem>();
+        part.enableEmission = false;
+        MuzzleFlash.enableEmission = false;
+        WhiteMuzzleFlash.enableEmission = false;
         collisionEvents = new List<ParticleCollisionEvent>();
     }
     private void Update()
@@ -25,10 +30,14 @@ public class ShootTest : MonoBehaviour
         {
             impulseSource.GenerateImpulse();
             part.enableEmission = true;
+            MuzzleFlash.enableEmission = true;
+            WhiteMuzzleFlash.enableEmission = true;
         }
         else
         {
             part.enableEmission = false;
+            MuzzleFlash.enableEmission = false;
+            WhiteMuzzleFlash.enableEmission = false;
         }
     }
 

@@ -36029,6 +36029,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dmg: 1
   part: {fileID: 0}
+  MuzzleFlash: {fileID: 1674060263}
+  WhiteMuzzleFlash: {fileID: 1262293521}
 --- !u!114 &1885355536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36054,7 +36056,7 @@ MonoBehaviour:
     m_ImpulseType: 3
     m_DissipationRate: 0.25
     m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-    m_AmplitudeGain: 5
+    m_AmplitudeGain: 4
     m_FrequencyGain: 10
     m_RepeatMode: 0
     m_Randomize: 1
