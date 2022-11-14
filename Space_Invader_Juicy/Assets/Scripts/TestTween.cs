@@ -7,12 +7,13 @@ public class TestTween : MonoBehaviour
 {
 
     [SerializeField] GameObject objectToMove;
+    [SerializeField] Material mat;
 
     void Start()
     {
         objectToMove.GetComponent<Rigidbody>().DOMove(new Vector3(2, 3, 4), 1).OnComplete(() =>
         {
-            objectToMove.GetComponent<Material>().DOColor(Color.green, 1);
+            objectToMove.GetComponent<MeshRenderer>().material.DOColor(Random.ColorHSV(), 1).SetLoops(-1,LoopType.Yoyo);
         });
     }
 
