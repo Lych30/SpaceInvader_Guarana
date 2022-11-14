@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   threshold:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.8
   intensity:
     m_OverrideState: 1
     m_Value: 25.63
   scatter:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.044
   clamp:
-    m_OverrideState: 1
-    m_Value: 65471.22
+    m_OverrideState: 0
+    m_Value: 65374.52
   tint:
     m_OverrideState: 1
     m_Value: {r: 1, g: 0, b: 0, a: 1}

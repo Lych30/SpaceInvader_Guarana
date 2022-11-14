@@ -10,7 +10,7 @@ public class Controler : MonoBehaviour
     // Start is called before the first frame update
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float positionX = transform.position.x + (Input.GetAxis("Horizontal") * speed);
         positionX = Mathf.Clamp(positionX,-10,10);

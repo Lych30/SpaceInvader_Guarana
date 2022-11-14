@@ -6,6 +6,7 @@ using UnityEngine.ParticleSystemJobs;
 
 public class ShootTest : MonoBehaviour
 {
+    public float Dmg;
     public ParticleSystem part;
     public List<ParticleCollisionEvent> collisionEvents;
 
@@ -24,13 +25,14 @@ public class ShootTest : MonoBehaviour
 
         while (i < numCollisionEvents)
         {
-            if (rb)
+            if (rb && other.GetComponent<EnnemyScript>())
             {
                 Debug.Log("Hit");
-                /*Vector3 pos = collisionEvents[i].intersection;
-                Vector3 force = collisionEvents[i].velocity * 10;
-                rb.AddForce(force);*/
+                Vector3 pos = collisionEvents[i].intersection;
+                Vector3 force = collisionEvents[i].velocity*10;
+                other.GetComponent<EnnemyScript>().TakeDmg(Dmg,force);
                 
+
             }
             i++;
         }
