@@ -7,7 +7,6 @@ public class TestTween : MonoBehaviour
 {
 
     [SerializeField] GameObject objectToMove;
-    [SerializeField] Material mat;
 
     void Start()
     {
