@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10086e8cd69847d4eb0fa5cef524cb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 200
+  healthPoints: 75
   Explode: {fileID: 2264045418537695601}
   mesh: {fileID: 0}
 --- !u!54 &6663090861887002819

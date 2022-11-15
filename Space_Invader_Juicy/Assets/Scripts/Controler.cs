@@ -16,5 +16,13 @@ public class Controler : MonoBehaviour
         positionX = Mathf.Clamp(positionX,-10,10);
         transform.position = new Vector3(positionX, transform.position.y ,transform.position.z);
     }
-   
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Ennemy"))
+        {
+            GameManager.Instance.Defeat();
+            gameObject.SetActive(false);
+        }
+    }
 }
