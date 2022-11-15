@@ -225,21 +225,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1729007315}
     m_Modifications:
-    - target: {fileID: 2264045418537695601, guid: 41d201dcf230f0f4db4c83c50db64e9d,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264045418537695601, guid: 41d201dcf230f0f4db4c83c50db64e9d,
-        type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264045418537695601, guid: 41d201dcf230f0f4db4c83c50db64e9d,
-        type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 5369465304942286641, guid: 41d201dcf230f0f4db4c83c50db64e9d,
         type: 3}
       propertyPath: m_Name
