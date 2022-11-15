@@ -33,8 +33,8 @@ public class Invader : MonoBehaviour
         {
             //faudra mettre de la juicyness ici
             GetComponent<MeshRenderer>().enabled = false;
-            Explode.Play();
             GetComponent<Collider>().enabled = false;
+            Explode.Play();
             Destroy(this.gameObject, 2);
             //GetComponent<Rigidbody>().isKinematic = false;
             //GetComponent<Rigidbody>().AddForce(Force);
