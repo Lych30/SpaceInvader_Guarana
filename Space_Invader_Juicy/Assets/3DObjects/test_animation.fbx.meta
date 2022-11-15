@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: 3f9342b41f1fed240bc803006b69ddd4
+guid: d4be2ddd4182e60479b6a683b4499cad
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,7 +38,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 3
+    globalScale: 0.03
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +91,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.03
+    globalScale: 0.000762
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
