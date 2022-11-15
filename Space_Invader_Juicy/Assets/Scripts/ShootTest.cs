@@ -51,15 +51,12 @@ public class ShootTest : MonoBehaviour
 
         while (i < numCollisionEvents)
         {
-            if (rb && other.GetComponent<EnnemyScript>())
+            if (rb && other.GetComponent<Invader>())
             {
                 Debug.Log("Hit");
                 Vector3 pos = collisionEvents[i].intersection;
-                Vector3 force = collisionEvents[i].velocity*10;
-                other.GetComponent<EnnemyScript>().TakeDmg(Dmg,force);
-                
-
-
+                //Vector3 force = collisionEvents[i].velocity*10;
+                other.GetComponent<Invader>().TakeDmg(Dmg);//,force);
             }
             i++;
         }

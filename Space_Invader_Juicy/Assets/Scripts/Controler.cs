@@ -14,7 +14,7 @@ public class Controler : MonoBehaviour
     {
         float positionX = transform.position.x + (Input.GetAxis("Horizontal") * speed);
         positionX = Mathf.Clamp(positionX,-10,10);
-        transform.position = new Vector3(positionX, 0,0);
+        transform.position = new Vector3(positionX, transform.position.y ,transform.position.z);
     }
    
 }
