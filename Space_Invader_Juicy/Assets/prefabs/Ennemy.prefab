@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5369465304942286645}
   - component: {fileID: 5369465304942286644}
   - component: {fileID: 5369465304942286647}
-  - component: {fileID: 2756720521704756478}
+  - component: {fileID: 818044815521660737}
   - component: {fileID: 6663090861887002819}
   m_Layer: 0
   m_Name: Ennemy
@@ -99,7 +99,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2756720521704756478
+--- !u!114 &818044815521660737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,10 +108,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 5369465304942286641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a15c4b8b62b81946bb45f89ba0e1add, type: 3}
+  m_Script: {fileID: 11500000, guid: 10086e8cd69847d4eb0fa5cef524cb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 200
+  speed: 3
+  lerpSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  target: {fileID: 0}
+  healthPoints: 200
 --- !u!54 &6663090861887002819
 Rigidbody:
   m_ObjectHideFlags: 0
