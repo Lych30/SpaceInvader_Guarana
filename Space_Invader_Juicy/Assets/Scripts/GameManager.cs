@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
-    public UnityEvent EnemyKilled = new UnityEvent();
-    public UnityEvent InvaderCountIncrement = new UnityEvent();
+    [HideInInspector] public UnityEvent EnemyKilled = new UnityEvent();
+    [HideInInspector] public UnityEvent InvaderCountIncrement = new UnityEvent();
 
     private int enemyCount = 0;
 
