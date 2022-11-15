@@ -9,13 +9,13 @@ public class Invader : MonoBehaviour
 
     private float life;
     public ParticleSystem Explode;
-    Mesh mesh;
+    [SerializeField] Mesh mesh;
     void Start()
     {
         mesh = GetComponent<MeshFilter>().mesh;
         var shape = Explode.shape;
         shape.enabled = true;
-        shape.shapeType = ParticleSystemShapeType.MeshRenderer;
+        shape.shapeType = ParticleSystemShapeType.Mesh;
         shape.mesh = mesh;
         
         life = healthPoints;

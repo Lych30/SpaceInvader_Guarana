@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 200
   Explode: {fileID: 2264045418537695601}
+  mesh: {fileID: 0}
 --- !u!54 &6663090861887002819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -415,8 +416,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
-      minScalar: 0.1
+      scalar: 0.1
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
