@@ -14,8 +14,8 @@ public class InvaderMovement : MonoBehaviour
     float t = 0;
     private Vector3 startPosition;
     private Vector3 targetPosition;
-
     private float distance;
+    private bool lerpToNextTarget = true;
 
     public void Start()
     {
@@ -26,7 +26,11 @@ public class InvaderMovement : MonoBehaviour
     void Update()
     {
         if (path == null) return;
-        LerpMovement();
+
+        if (lerpToNextTarget)
+            LerpMovement();
+        else
+            Teleport();
 
         if (Vector2.Distance(transform.position, targetPosition) <= .025f)
         {
@@ -43,7 +47,7 @@ public class InvaderMovement : MonoBehaviour
     {
         t = 0f;
         startPosition = transform.position;
-        (targetPosition, targetIndex) = path.GetNextPosition(targetIndex);
+        (targetPosition, targetIndex) = path.GetNextPosition(targetIndex, out lerpToNextTarget);
         distance = Vector2.Distance(startPosition, targetPosition);
     }
 
