@@ -11,12 +11,14 @@ public class ShootTest : MonoBehaviour
     public ParticleSystem part;
     public ParticleSystem MuzzleFlash;
     public ParticleSystem WhiteMuzzleFlash;
+    public GameObject EnnemyParts;
+    ParticleSystemSubEmitterProperties subEmitter;
     CinemachineImpulseSource impulseSource;
     public List<ParticleCollisionEvent> collisionEvents;
 
     void Start()
     {
-     
+        
         impulseSource = GetComponent<CinemachineImpulseSource>();
         part = GetComponent<ParticleSystem>();
         part.enableEmission = false;
@@ -54,9 +56,18 @@ public class ShootTest : MonoBehaviour
             if (rb && other.GetComponent<Invader>())
             {
                 Debug.Log("Hit");
+                
                 Vector3 pos = collisionEvents[i].intersection;
                 //Vector3 force = collisionEvents[i].velocity*10;
                 other.GetComponent<Invader>().TakeDmg(Dmg);//,force);
+
+                float random = Random.Range(0.0f, 1.0f);
+                if (random >= 0.7)
+                {
+                    Debug.Log("SpawnParts");
+                    GameObject parts = Instantiate(EnnemyParts, pos, Quaternion.identity);
+                   Destroy(parts, 2);
+                }
             }
             i++;
         }
