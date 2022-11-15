@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 200
+  Explode: {fileID: 2264045418537695601}
 --- !u!54 &6663090861887002819
 Rigidbody:
   m_ObjectHideFlags: 0

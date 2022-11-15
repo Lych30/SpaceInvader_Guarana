@@ -8,9 +8,16 @@ public class Invader : MonoBehaviour
     [SerializeField] private float healthPoints = 20f;
 
     private float life;
-
+    public ParticleSystem Explode;
+    Mesh mesh;
     void Start()
     {
+        mesh = GetComponent<MeshFilter>().mesh;
+        var shape = Explode.shape;
+        shape.enabled = true;
+        shape.shapeType = ParticleSystemShapeType.MeshRenderer;
+        shape.mesh = mesh;
+        
         life = healthPoints;
     }
 
@@ -25,9 +32,14 @@ public class Invader : MonoBehaviour
         if (life <= 0)
         {
             //faudra mettre de la juicyness ici
+            GetComponent<MeshRenderer>().enabled = false;
+            Explode.Play();
+            GetComponent<Collider>().enabled = false;
             Destroy(this.gameObject, 2);
             //GetComponent<Rigidbody>().isKinematic = false;
             //GetComponent<Rigidbody>().AddForce(Force);
         }
     }
+
+   
 }
