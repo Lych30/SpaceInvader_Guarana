@@ -6,7 +6,7 @@ public class InvaderPath : MonoBehaviour
 {
     [SerializeField] private List<Transform> points;
 
-    public (Vector3 position, int index) GetNextPosition(int currentIndex)
+    public (Vector3 position, int index) GetNextPosition(int currentIndex)//, out bool lerpToNextPosition)
     {
         if(points.Count == 0) throw new IndexOutOfRangeException("No Points In InvaderPath");
 
