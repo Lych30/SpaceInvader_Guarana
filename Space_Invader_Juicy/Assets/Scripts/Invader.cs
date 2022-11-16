@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Invader : MonoBehaviour
 {
     [Header("Stats")]
@@ -12,6 +12,7 @@ public class Invader : MonoBehaviour
     [SerializeField] Mesh mesh;
     Renderer rd;
     [SerializeField] GameObject projectilePrefab;
+    public GameObject PopScoreGO;
 
     void Start()
     {
@@ -72,6 +73,9 @@ public class Invader : MonoBehaviour
             }
 
             ScoreManager.instance.AddScore(ScoreValue);
+            GameObject PopScore = Instantiate(PopScoreGO, transform.position, Quaternion.identity);
+            PopScore.GetComponentInChildren<TextMeshPro>().text = ScoreValue.ToString();
+            Destroy(PopScore, 1);
             //GetComponent<Rigidbody>().isKinematic = false;
             //GetComponent<Rigidbody>().AddForce(Force);
         }

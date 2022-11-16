@@ -15985,15 +15985,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091470694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.008726793, y: -0.0000002964124, z: -0.00013083557, w: 0.9999619}
+  m_LocalPosition: {x: -0.000066721965, y: 0.00003886223, z: -0.0044504735}
   m_LocalScale: {x: 4.5881, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1464422049}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1, y: 0, z: -0.015}
 --- !u!1001 &1093243514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26340,7 +26340,7 @@ MonoBehaviour:
   m_text: 'Score : 0123456789'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ad083f5130874d646bba2dea4dbb5d4e, type: 2}
-  m_sharedMaterial: {fileID: 3874970714458989100, guid: ad083f5130874d646bba2dea4dbb5d4e,
+  m_sharedMaterial: {fileID: -5353898114535393532, guid: ad083f5130874d646bba2dea4dbb5d4e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -36596,7 +36596,7 @@ MonoBehaviour:
   m_text: 'Score : 0123456789'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ad083f5130874d646bba2dea4dbb5d4e, type: 2}
-  m_sharedMaterial: {fileID: 3874970714458989100, guid: ad083f5130874d646bba2dea4dbb5d4e,
+  m_sharedMaterial: {fileID: -5353898114535393532, guid: ad083f5130874d646bba2dea4dbb5d4e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -46865,7 +46865,7 @@ MonoBehaviour:
     type: 3}
   StandarBullet: {fileID: 8420228860727084187, guid: 1e1774e8af9599f46985eba714090c33,
     type: 3}
-  ShootSound_SpaceInvaders: {fileID: 0}
+  ShootSound_SpaceInvaders: {fileID: 1885355537}
 --- !u!114 &1885355536
 MonoBehaviour:
   m_ObjectHideFlags: 0
