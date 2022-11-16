@@ -34,6 +34,7 @@ public class ScoreManager : MonoBehaviour
     }
     public void UpdateScoreText()
     {
+        ScoreTMPRo.color = new Color(1, 1 - ((float)Score / HighScore), 1 - ((float)Score / HighScore), 1);
         ScoreTMPRo.text = "Score : " + Score.ToString();
     }
     public void SetHighScoreText()
@@ -48,6 +49,17 @@ public class ScoreManager : MonoBehaviour
             HighScore = Score;
             PlayerPrefs.SetInt("HighScore", HighScore);
             HighScoreTMPRo.text = "HighScore : " + HighScore.ToString();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            PlayerPrefs.SetInt("HighScore", 0);
+            HighScoreTMPRo.text = "HighScore : " + HighScore.ToString();
+            SetHighScoreText();
+            UpdateScoreText();
         }
     }
 }

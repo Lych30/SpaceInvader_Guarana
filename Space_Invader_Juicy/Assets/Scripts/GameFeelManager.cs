@@ -40,6 +40,7 @@ public class GameFeelManager : MonoBehaviour
                 case KeyCode.Alpha3:
 
                     PostProcessGF = !PostProcessGF;
+
                     if (PostProcessGF)
                     {
                         Volume.enabled = true;
