@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 
     public void UI_MainMenu(GameObject buttonToPunch)
     {
-        buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).OnComplete(() =>
+        buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).SetUpdate(true).OnComplete(() =>
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(0); // 0 = MainMenu Scene
@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void UI_StartGame(GameObject buttonToPunch)
     {
-        buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).OnComplete(() =>
+        buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).SetUpdate(true).OnComplete(() =>
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(1); // 1 = Game Scene 
