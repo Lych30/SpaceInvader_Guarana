@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: d4be2ddd4182e60479b6a683b4499cad
+guid: fdc51965c4ae36c478dad526d0b168ca
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Take 001
+    second: Idle Squid
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Idle Squid
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 110
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
