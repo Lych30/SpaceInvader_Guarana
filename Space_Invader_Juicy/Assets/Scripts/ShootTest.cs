@@ -15,10 +15,13 @@ public class ShootTest : MonoBehaviour
     ParticleSystemSubEmitterProperties subEmitter;
     CinemachineImpulseSource impulseSource;
     public List<ParticleCollisionEvent> collisionEvents;
-
+    public GameObject StandarBullet;
+   
+    private float TimerBtwShots = 1.0f;
+    private float Timer;
     void Start()
     {
-        
+        Timer = TimerBtwShots;
         impulseSource = GetComponent<CinemachineImpulseSource>();
         part = GetComponent<ParticleSystem>();
         part.enableEmission = false;
@@ -28,6 +31,11 @@ public class ShootTest : MonoBehaviour
     }
     private void Update()
     {
+        if(Timer >= 0)
+        {
+            Timer -= Time.deltaTime;
+        }
+        
         if (Input.GetButton("Fire1"))
         {
             if(GameFeelManager.instance.ShakeGF)
@@ -39,6 +47,17 @@ public class ShootTest : MonoBehaviour
                 part.enableEmission = true;
                 MuzzleFlash.enableEmission = true;
                 WhiteMuzzleFlash.enableEmission = true;
+            }
+            else
+            {
+                if(Timer <= 0)
+                {
+                    //garbage shoot
+                    GameObject bullet = Instantiate(StandarBullet, transform.position, Quaternion.identity);
+                    Destroy(bullet, 3);
+                    Timer = TimerBtwShots;
+                }
+
             }
 
         }
