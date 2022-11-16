@@ -42,7 +42,7 @@ public class ShootTest : MonoBehaviour
                 impulseSource.GenerateImpulse();
 
 
-            if (GameFeelManager.instance.ShakeGF)
+            if (GameFeelManager.instance.FireGF)
             {
                 part.enableEmission = true;
                 MuzzleFlash.enableEmission = true;
