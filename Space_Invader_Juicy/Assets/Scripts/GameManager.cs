@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private int enemyCount = 0;
     private List<Invader> enemyList = new List<Invader>();
 
+    float timeBeforeNextShoot = 3;
+
     private void Awake()
     {
         if(instance != null)
@@ -33,8 +35,20 @@ public class GameManager : MonoBehaviour
     {
         // Effect Toggle Inputs
 
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        //Random for enemy shoot
+        if (timeBeforeNextShoot > 0)
+        {
+            timeBeforeNextShoot -= Time.deltaTime;
+        }
+        else
+        {
+            timeBeforeNextShoot = Random.Range(0, enemyList.Count);
             EnemyShoot();
+        }
+
+        //if (Input.GetKeyDown(KeyCode.Space))
+            //EnemyShoot();
     }
 
     private void OnDestroy()
@@ -44,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
+        Debug.Log("You won !");
     }
 
     public void Defeat()
