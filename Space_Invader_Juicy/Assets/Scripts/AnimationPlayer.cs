@@ -16,10 +16,13 @@ public class AnimationPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+     
+        if(useAnimation != GameFeelManager.instance.EnnemyAnimGF)
         {
-            useAnimation = !useAnimation;
+            useAnimation = GameFeelManager.instance.EnnemyAnimGF;
             animator.Play(useAnimation ? idle.name : "Rest");
         }
+            
+
     }
 }
