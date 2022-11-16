@@ -13,6 +13,7 @@ public class GameFeelManager : MonoBehaviour
     public bool PostProcessGF;
     public bool EnnemyExplosionGF;
     public bool EnnemyAnimGF;
+    public bool PopScoreGF;
 
     public Volume Volume;
 
@@ -57,6 +58,9 @@ public class GameFeelManager : MonoBehaviour
                     break;
                 case KeyCode.Alpha5:
                     EnnemyAnimGF = !EnnemyAnimGF;
+                    break;
+                case KeyCode.Alpha6:
+                    PopScoreGF = !PopScoreGF;
                     break;
                 default:
                     Debug.Log("none");

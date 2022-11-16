@@ -73,9 +73,12 @@ public class Invader : MonoBehaviour
             }
 
             ScoreManager.instance.AddScore(ScoreValue);
-            GameObject PopScore = Instantiate(PopScoreGO, transform.position, Quaternion.identity);
-            PopScore.GetComponentInChildren<TextMeshPro>().text = ScoreValue.ToString();
-            Destroy(PopScore, 1);
+            if (GameFeelManager.instance.PopScoreGF)
+            {
+                GameObject PopScore = Instantiate(PopScoreGO, transform.position, Quaternion.identity);
+                PopScore.GetComponentInChildren<TextMeshPro>().text = ScoreValue.ToString();
+                Destroy(PopScore, 1);
+            }
             //GetComponent<Rigidbody>().isKinematic = false;
             //GetComponent<Rigidbody>().AddForce(Force);
         }
