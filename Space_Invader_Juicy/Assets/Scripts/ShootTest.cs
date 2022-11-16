@@ -69,6 +69,22 @@ public class ShootTest : MonoBehaviour
                    Destroy(parts, 2);
                 }
             }
+            else if (rb && other.GetComponent<EnemyBullet>())
+            {
+                Debug.Log("Hit bullet");
+
+                Vector3 pos = collisionEvents[i].intersection;
+                //Vector3 force = collisionEvents[i].velocity*10;
+                other.GetComponent<EnemyBullet>().TakeDmg(Dmg);//,force);
+
+                float random = Random.Range(0.0f, 1.0f);
+                if (random >= 0.7)
+                {
+                    Debug.Log("SpawnParts");
+                    GameObject parts = Instantiate(EnnemyParts, pos, Quaternion.identity);
+                    Destroy(parts, 2);
+                }
+            }
             i++;
         }
     }
