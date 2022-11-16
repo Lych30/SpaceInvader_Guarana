@@ -7,14 +7,23 @@ using UnityEngine.UIElements;
 
 public class GameFeelManager : MonoBehaviour
 {
+    public static GameFeelManager instance;
     public bool FireGF;
     public bool ShakeGF;
     public bool PostProcessGF;
     public bool EnnemyExplosionGF;
-
+    public bool EnnemyAnimGF;
 
     public Volume Volume;
-    // Update is called once per frame
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+            Destroy(gameObject);
+
+        instance = this;
+    }
+
     void OnGUI()
     {
         Event e = Event.current;
@@ -44,6 +53,9 @@ public class GameFeelManager : MonoBehaviour
 
                 case KeyCode.Alpha4:
                     EnnemyExplosionGF = !EnnemyExplosionGF;
+                    break;
+                case KeyCode.Alpha5:
+                    EnnemyAnimGF = !EnnemyAnimGF;
                     break;
                 default:
                     Debug.Log("none");

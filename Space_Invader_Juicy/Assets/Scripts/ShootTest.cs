@@ -30,10 +30,17 @@ public class ShootTest : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            impulseSource.GenerateImpulse();
-            part.enableEmission = true;
-            MuzzleFlash.enableEmission = true;
-            WhiteMuzzleFlash.enableEmission = true;
+            if(GameFeelManager.instance.ShakeGF)
+                impulseSource.GenerateImpulse();
+
+
+            if (GameFeelManager.instance.ShakeGF)
+            {
+                part.enableEmission = true;
+                MuzzleFlash.enableEmission = true;
+                WhiteMuzzleFlash.enableEmission = true;
+            }
+
         }
         else
         {
