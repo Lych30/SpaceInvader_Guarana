@@ -16,7 +16,7 @@ public class ShootTest : MonoBehaviour
     CinemachineImpulseSource impulseSource;
     public List<ParticleCollisionEvent> collisionEvents;
     public GameObject StandarBullet;
-   
+    public AudioSource ShootSound_SpaceInvaders;
     private float TimerBtwShots = 1.0f;
     private float Timer;
     void Start()
@@ -53,6 +53,7 @@ public class ShootTest : MonoBehaviour
                 if(Timer <= 0)
                 {
                     //garbage shoot
+                    ShootSound_SpaceInvaders.Play();
                     GameObject bullet = Instantiate(StandarBullet, transform.position, Quaternion.identity);
                     Destroy(bullet, 3);
                     Timer = TimerBtwShots;
