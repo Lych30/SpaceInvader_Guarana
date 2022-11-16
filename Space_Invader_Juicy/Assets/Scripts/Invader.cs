@@ -61,9 +61,16 @@ public class Invader : MonoBehaviour
 
             GameManager.Instance?.EnemyKilled.Invoke();
             GameManager.Instance?.DecrementEnemy(this);
+            if (GameFeelManager.instance.EnnemyExplosionGF)
+            {
+                Explode.Play();
+                Destroy(this.gameObject, 2);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
 
-            Explode.Play();
-            Destroy(this.gameObject, 2);
             ScoreManager.instance.AddScore(ScoreValue);
             //GetComponent<Rigidbody>().isKinematic = false;
             //GetComponent<Rigidbody>().AddForce(Force);
