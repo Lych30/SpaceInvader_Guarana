@@ -11,9 +11,12 @@ public class Invader : MonoBehaviour
     public ParticleSystem Explode;
     [SerializeField] Mesh mesh;
     Renderer rd;
+    [SerializeField] GameObject projectilePrefab;
+
     void Start()
     {
         GameManager.Instance?.InvaderCountIncrement.Invoke();
+        GameManager.Instance?.IncrementEnemy(this);
 
         try
         {
@@ -40,6 +43,12 @@ public class Invader : MonoBehaviour
 
     }
 
+    public void Shoot()
+    {
+        GameObject bullet = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        //bullet.GetComponent<EnemyBullet>();
+    }
+
     public void TakeDmg(float dmg)//, Vector3 Force)
     {
         life -= dmg;
@@ -51,6 +60,7 @@ public class Invader : MonoBehaviour
             GetComponent<Collider>().enabled = false;
 
             GameManager.Instance?.EnemyKilled.Invoke();
+            GameManager.Instance?.DecrementEnemy(this);
 
             Explode.Play();
             Destroy(this.gameObject, 2);

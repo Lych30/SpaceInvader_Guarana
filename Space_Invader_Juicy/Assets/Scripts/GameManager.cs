@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public UnityEvent InvaderCountIncrement = new UnityEvent();
 
     private int enemyCount = 0;
+    private List<Invader> enemyList = new List<Invader>();
 
     private void Awake()
     {
@@ -31,6 +32,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Effect Toggle Inputs
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            EnemyShoot();
     }
 
     private void OnDestroy()
@@ -44,18 +48,35 @@ public class GameManager : MonoBehaviour
 
     public void Defeat()
     {
+        Debug.Log("You lost !");
     }
 
     public void ReloadScene()
     {
     }
 
+    public void EnemyShoot()
+    {
+        int ran = Random.Range(0, enemyList.Count);
+        enemyList[ran].Shoot();
+    }
+
     private void IncrementEnemyCount() => enemyCount++;
     private void DecrementEnemyCount() => enemyCount--;
 
+    public void IncrementEnemy(Invader enemy)
+    {
+        enemyList.Add(enemy);
+    }
+
+    public void DecrementEnemy(Invader enemy)
+    {
+        enemyList.Remove(enemy);
+    }
+
     private void CheckForEnemyLeft()
     {
-        if (enemyCount <= 0)
+        if (enemyList.Count <= 0)
             Victory();
     }
 }

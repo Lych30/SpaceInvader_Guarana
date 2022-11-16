@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5369465304942286647}
   - component: {fileID: 818044815521660737}
   - component: {fileID: 6663090861887002819}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ennemy
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
@@ -116,6 +116,8 @@ MonoBehaviour:
   ScoreValue: 10
   Explode: {fileID: 2264045418537695601}
   mesh: {fileID: 0}
+  projectilePrefab: {fileID: 3509705488502690261, guid: 9510a9c0664d0934f8b203e1bfba4f67,
+    type: 3}
 --- !u!54 &6663090861887002819
 Rigidbody:
   m_ObjectHideFlags: 0
