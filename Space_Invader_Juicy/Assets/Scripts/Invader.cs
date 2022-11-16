@@ -6,7 +6,7 @@ public class Invader : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] private float healthPoints = 20f;
-
+    public int ScoreValue;
     private float life;
     public ParticleSystem Explode;
     [SerializeField] Mesh mesh;
@@ -54,6 +54,7 @@ public class Invader : MonoBehaviour
 
             Explode.Play();
             Destroy(this.gameObject, 2);
+            ScoreManager.instance.AddScore(ScoreValue);
             //GetComponent<Rigidbody>().isKinematic = false;
             //GetComponent<Rigidbody>().AddForce(Force);
         }

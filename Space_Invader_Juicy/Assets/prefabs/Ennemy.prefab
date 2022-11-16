@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 75
+  ScoreValue: 10
   Explode: {fileID: 2264045418537695601}
   mesh: {fileID: 0}
 --- !u!54 &6663090861887002819
@@ -1680,7 +1681,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: -5
-      minScalar: 1.0811
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1750,8 +1751,8 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 3
-      scalar: -5
-      minScalar: 1.0811
+      scalar: 0
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1822,7 +1823,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: -5
-      minScalar: 1.0811
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
