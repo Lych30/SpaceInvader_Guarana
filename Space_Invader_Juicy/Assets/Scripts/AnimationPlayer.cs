@@ -1,25 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class AnimationPlayer : MonoBehaviour
 {
     [SerializeField] private AnimationClip idle;
 
-    private Animation anim;
     private Animator animator;
+
+    private bool useAnimation = false;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        animator.Play(idle.name);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            useAnimation = !useAnimation;
+            animator.Play(useAnimation ? idle.name : "Rest");
+        }
     }
 }
