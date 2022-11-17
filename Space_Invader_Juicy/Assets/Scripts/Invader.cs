@@ -62,6 +62,7 @@ public class Invader : MonoBehaviour
 
             GameManager.Instance?.EnemyKilled.Invoke();
             GameManager.Instance?.DecrementEnemy(this);
+
             if (GameFeelManager.instance.EnnemyExplosionGF)
             {
                 Explode.Play();
@@ -72,15 +73,14 @@ public class Invader : MonoBehaviour
                 Destroy(this.gameObject);
             }
 
-            ScoreManager.instance.AddScore(ScoreValue);
             if (GameFeelManager.instance.PopScoreGF)
             {
                 GameObject PopScore = Instantiate(PopScoreGO, transform.position, Quaternion.identity);
                 PopScore.GetComponentInChildren<TextMeshPro>().text = ScoreValue.ToString();
                 Destroy(PopScore, 1);
             }
-            //GetComponent<Rigidbody>().isKinematic = false;
-            //GetComponent<Rigidbody>().AddForce(Force);
+
+            ScoreManager.instance.AddScore(ScoreValue);
         }
     }
 }
