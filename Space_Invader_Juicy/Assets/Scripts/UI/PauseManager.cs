@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
@@ -37,8 +38,13 @@ public class PauseManager : MonoBehaviour
 
     public void UI_PauseButton(GameObject buttonToPunch)
     {
+        buttonToPunch.GetComponent<Button>().enabled = false;
+
         buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).SetUpdate(true).OnComplete(() =>
         {
+
+            buttonToPunch.GetComponent<Button>().enabled = true;
+
             isPause = !isPause;
 
             if (isPause)
