@@ -16,7 +16,6 @@ public class Invader : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance?.InvaderCountIncrement.Invoke();
         GameManager.Instance?.IncrementEnemy(this);
 
         try
@@ -60,7 +59,6 @@ public class Invader : MonoBehaviour
             rd.enabled = false;
             GetComponent<Collider>().enabled = false;
 
-            GameManager.Instance?.EnemyKilled.Invoke();
             GameManager.Instance?.DecrementEnemy(this);
 
             if (GameFeelManager.instance.EnnemyExplosionGF)

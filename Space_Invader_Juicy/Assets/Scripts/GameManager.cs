@@ -8,10 +8,6 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
-    [HideInInspector] public UnityEvent EnemyKilled = new UnityEvent();
-    [HideInInspector] public UnityEvent InvaderCountIncrement = new UnityEvent();
-
-    private int enemyCount = 0;
     private List<Invader> enemyList = new List<Invader>();
 
     private float timeBeforeNextShoot = 3;
@@ -23,12 +19,6 @@ public class GameManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-    
-    void Start()
-    {
-        EnemyKilled.AddListener(DecrementEnemyCount);
-        EnemyKilled.AddListener(CheckForEnemyLeft);
     }
 
     void Update()
@@ -52,9 +42,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public void EnemyShoot()
     {
-        EnemyKilled.RemoveAllListeners();
+        int ran = Random.Range(0, enemyList.Count);
+        enemyList[ran].Shoot();
     }
 
     public void Victory()
@@ -70,15 +61,6 @@ public class GameManager : MonoBehaviour
     public void ReloadScene()
     {
     }
-
-    public void EnemyShoot()
-    {
-        int ran = Random.Range(0, enemyList.Count);
-        enemyList[ran].Shoot();
-    }
-
-    private void IncrementEnemyCount() => enemyCount++;
-    private void DecrementEnemyCount() => enemyCount--;
 
     public void IncrementEnemy(Invader enemy)
     {
