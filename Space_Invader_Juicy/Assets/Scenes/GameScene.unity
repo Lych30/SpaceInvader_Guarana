@@ -32119,6 +32119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   life: 10
+  clampBorder: 15
 --- !u!65 &2037494238
 BoxCollider:
   m_ObjectHideFlags: 0

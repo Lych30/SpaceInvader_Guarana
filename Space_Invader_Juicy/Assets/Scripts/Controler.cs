@@ -8,13 +8,13 @@ public class Controler : MonoBehaviour
 {
     public float speed;
     public float life = 10;
-    // Start is called before the first frame update
+    public float clampBorder = 10f;
 
     // Update is called once per frame
     void FixedUpdate()
     {
         float positionX = transform.position.x + (Input.GetAxis("Horizontal") * speed);
-        positionX = Mathf.Clamp(positionX,-10,10);
+        positionX = Mathf.Clamp(positionX, -clampBorder, clampBorder);
         transform.position = new Vector3(positionX, transform.position.y ,transform.position.z);
     }
 
@@ -36,5 +36,13 @@ public class Controler : MonoBehaviour
             GameManager.Instance.Defeat();
             gameObject.SetActive(false);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 pos = transform.position;
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(new Vector3( Mathf.Max(pos.x - 2, pos.x - clampBorder) , pos.y, pos.z), Vector3.left * clampBorder);
+        Gizmos.DrawRay(new Vector3( Mathf.Min(pos.x + 2, pos.x + clampBorder) , pos.y, pos.z), Vector3.right * clampBorder);
     }
 }
