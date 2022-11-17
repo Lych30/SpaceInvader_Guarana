@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Collections;
+
 public class Invader : MonoBehaviour
 {
     [Header("Stats")]
@@ -13,11 +15,13 @@ public class Invader : MonoBehaviour
     Renderer rd;
     [SerializeField] GameObject projectilePrefab;
     public GameObject PopScoreGO;
-
+    [SerializeField] Material mat;
+    [ColorUsageAttribute(true, false)]
+    public Color initialColor;
     void Start()
     {
         GameManager.Instance?.IncrementEnemy(this);
-
+        mat = transform.GetChild(1).GetComponentInChildren<SkinnedMeshRenderer>().material;
         try
         {
             rd = gameObject.GetComponent<MeshRenderer>();
@@ -34,7 +38,7 @@ public class Invader : MonoBehaviour
         shape.enabled = true;
         shape.shapeType = ParticleSystemShapeType.Mesh;
         shape.mesh = mesh;
-        
+        initialColor = (Vector4)transform.GetChild(1).GetComponentInChildren<SkinnedMeshRenderer>().material.GetColor("_EmissionColor");
         life = healthPoints;
     }
 
@@ -52,6 +56,8 @@ public class Invader : MonoBehaviour
     public void TakeDmg(float dmg)//, Vector3 Force)
     {
         life -= dmg;
+        StopAllCoroutines();
+        mat.SetColor("_EmissionColor", new Color(UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f),2)) ;
         if (life <= 0)
         {
             //faudra mettre de la juicyness ici
@@ -77,8 +83,13 @@ public class Invader : MonoBehaviour
                 PopScore.GetComponentInChildren<TextMeshPro>().text = ScoreValue.ToString();
                 Destroy(PopScore, 1);
             }
-
+            StartCoroutine(BackToRed(0.2f));
             ScoreManager.instance.AddScore(ScoreValue);
         }
+    }
+    IEnumerator BackToRed(float delay)
+    {
+        yield return new WaitForSeconds(delay);;
+        mat.SetColor("_EmissionColor", new Color(initialColor.r,initialColor.g,initialColor.b,2));
     }
 }
