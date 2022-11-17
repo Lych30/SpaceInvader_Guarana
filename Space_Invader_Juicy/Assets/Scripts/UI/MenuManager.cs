@@ -5,22 +5,10 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
-    MainMenu instance;
-
     public Vector3 tweenPunchScale = new Vector3(0.2f, 0.2f, 0.2f);
     public float duration = 0.35f;
-
-    public void Awake()
-    {
-        instance = this;
-    }
-
-    public void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 
     public void UI_MainMenu(GameObject buttonToPunch)
     {
