@@ -17,6 +17,7 @@ public class ShootTest : MonoBehaviour
     public List<ParticleCollisionEvent> collisionEvents;
     public GameObject StandarBullet;
     public AudioSource ShootSound_SpaceInvaders;
+    public AudioSource GatlingSound;
     private float TimerBtwShots = 1.0f;
     private float Timer;
     void Start()
@@ -47,6 +48,14 @@ public class ShootTest : MonoBehaviour
                 part.enableEmission = true;
                 MuzzleFlash.enableEmission = true;
                 WhiteMuzzleFlash.enableEmission = true;
+                if (!GatlingSound.isPlaying)
+                {
+                    GatlingSound.Play();
+                }
+                else
+                {
+                    GatlingSound.pitch = Random.Range(1.0f,1.25f);
+                }
             }
             else
             {
@@ -67,6 +76,10 @@ public class ShootTest : MonoBehaviour
             part.enableEmission = false;
             MuzzleFlash.enableEmission = false;
             WhiteMuzzleFlash.enableEmission = false;
+            if (GatlingSound.isPlaying)
+            {
+                GatlingSound.Stop();
+            }
         }
     }
 

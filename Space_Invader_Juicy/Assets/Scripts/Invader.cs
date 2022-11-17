@@ -18,6 +18,7 @@ public class Invader : MonoBehaviour
     [SerializeField] Material mat;
     [ColorUsageAttribute(true, false)]
     public Color initialColor;
+    public AudioSource exlposionSFX;
     void Start()
     {
         GameManager.Instance?.IncrementEnemy(this);
@@ -69,6 +70,8 @@ public class Invader : MonoBehaviour
 
             if (GameFeelManager.instance.EnnemyExplosionGF)
             {
+                exlposionSFX.pitch = UnityEngine.Random.Range(2.0f, 3.0f);
+                exlposionSFX.Play();
                 Explode.Play();
                 Destroy(this.gameObject, 2);
             }
