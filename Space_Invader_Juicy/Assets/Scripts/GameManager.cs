@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     private float timeBeforeNextShoot = 3;
 
+    [SerializeField] MenuManager refMenuManager;
+
     private void Awake()
     {
         if(instance != null)
@@ -42,6 +44,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OnLevelWasLoaded()
+    {
+        refMenuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
+    }
+
     public void EnemyShoot()
     {
         int ran = Random.Range(0, enemyList.Count);
@@ -50,12 +57,12 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
-        Debug.Log("You won !");
+        refMenuManager.ActivateVictoryScreen();
     }
 
     public void Defeat()
     {
-        Debug.Log("You lost !");
+        refMenuManager.ActivateLosingScreen();
     }
 
     public void ReloadScene()

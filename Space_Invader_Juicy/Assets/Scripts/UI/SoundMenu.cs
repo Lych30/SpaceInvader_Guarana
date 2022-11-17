@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class SoundMenu : MonoBehaviour
 {
-    SoundMenu instance;
+    public static SoundMenu instance;
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip buttonClick;
 
     private void Awake()
     {
+        if (instance != null)
+            Destroy(gameObject);
+
         instance = this;
     }
 
