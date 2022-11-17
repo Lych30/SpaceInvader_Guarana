@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private int enemyCount = 0;
     private List<Invader> enemyList = new List<Invader>();
 
-    float timeBeforeNextShoot = 3;
+    private float timeBeforeNextShoot = 3;
 
     private void Awake()
     {
@@ -43,12 +43,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            timeBeforeNextShoot = Random.Range(0, enemyList.Count);
+            if (enemyList.Count < 5)
+                timeBeforeNextShoot = Random.Range(0f, 3f);
+            else
+                timeBeforeNextShoot = Random.Range(0f, enemyList.Count);
+
             EnemyShoot();
         }
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-            //EnemyShoot();
     }
 
     private void OnDestroy()
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
     public void DecrementEnemy(Invader enemy)
     {
         enemyList.Remove(enemy);
+        CheckForEnemyLeft();
     }
 
     private void CheckForEnemyLeft()
