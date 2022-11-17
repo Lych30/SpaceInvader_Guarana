@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] float life = 3;
+    [SerializeField] float lifeTime = 3;
     [SerializeField] float moveSpeed = 10;
     [SerializeField] ParticleSystem Explode;
     MeshRenderer meshRenderer;
@@ -17,7 +18,7 @@ public class EnemyBullet : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         rb.velocity = Vector3.down * moveSpeed;
-        Destroy(gameObject, 8);
+        Destroy(gameObject, lifeTime);
     }
 
     public void TakeDmg(float dmg)//, Vector3 Force)
@@ -32,16 +33,18 @@ public class EnemyBullet : MonoBehaviour
 
             Explode.Play();
             Destroy(this.gameObject, 2);
-            //GetComponent<Rigidbody>().isKinematic = false;
-            //GetComponent<Rigidbody>().AddForce(Force);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.GetComponent<Controler>())
         {
-            other.GetComponent<Controler>()?.Hit();
+            other.GetComponent<Controler>().Hit();
+            Destroy(gameObject);
+        }
+        else if (other.tag == "DestroyBullet")
+        {
             Destroy(gameObject);
         }
     }
