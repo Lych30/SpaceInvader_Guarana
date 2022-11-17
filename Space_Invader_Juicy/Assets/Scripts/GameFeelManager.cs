@@ -14,8 +14,10 @@ public class GameFeelManager : MonoBehaviour
     public bool EnnemyExplosionGF;
     public bool EnnemyAnimGF;
     public bool PopScoreGF;
+    public bool BackgroundParticlesGF;
 
     public Volume Volume;
+    public GameObject BGParticles;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class GameFeelManager : MonoBehaviour
 
         instance = this;
     }
+   
 
     void OnGUI()
     {
@@ -61,6 +64,18 @@ public class GameFeelManager : MonoBehaviour
                     break;
                 case KeyCode.Alpha6:
                     PopScoreGF = !PopScoreGF;
+                    break;
+                case KeyCode.Alpha7:
+                    BackgroundParticlesGF = !BackgroundParticlesGF;
+                    if (BackgroundParticlesGF)
+                    {
+
+                        BGParticles.SetActive(true);
+                    }
+                    else
+                    {
+                        BGParticles.SetActive(false);
+                    }
                     break;
                 default:
                     Debug.Log("none");

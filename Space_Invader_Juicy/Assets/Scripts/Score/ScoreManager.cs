@@ -40,7 +40,7 @@ public class ScoreManager : MonoBehaviour
     public void SetHighScoreText()
     {
         HighScore = PlayerPrefs.GetInt("HighScore", 0);
-        HighScoreTMPRo.text = HighScore.ToString();
+        HighScoreTMPRo.text = "HighScore : " + HighScore.ToString();
     }
     public void CheckIfNewHighScore()
     {
