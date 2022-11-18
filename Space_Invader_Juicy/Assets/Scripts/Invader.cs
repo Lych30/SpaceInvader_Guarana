@@ -58,7 +58,7 @@ public class Invader : MonoBehaviour
     {
         life -= dmg;
         StopAllCoroutines();
-        StartCoroutine(BackToRed(0.2f));
+        StartCoroutine(BackToRed(0.1f));
         mat.SetColor("_EmissionColor", new Color(UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f),2)) ;
         if (life <= 0)
         {
