@@ -17,7 +17,7 @@ public class Invader : MonoBehaviour
     public GameObject PopScoreGO;
     [SerializeField] Material mat;
     [ColorUsageAttribute(true, false)]
-    public Color initialColor;
+    Color initialColor;
     public AudioSource exlposionSFX;
     void Start()
     {
@@ -58,6 +58,7 @@ public class Invader : MonoBehaviour
     {
         life -= dmg;
         StopAllCoroutines();
+        StartCoroutine(BackToRed(0.2f));
         mat.SetColor("_EmissionColor", new Color(UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f),2)) ;
         if (life <= 0)
         {
@@ -86,13 +87,14 @@ public class Invader : MonoBehaviour
                 PopScore.GetComponentInChildren<TextMeshPro>().text = ScoreValue.ToString();
                 Destroy(PopScore, 1);
             }
-            StartCoroutine(BackToRed(0.2f));
+            
             ScoreManager.instance.AddScore(ScoreValue);
         }
     }
     IEnumerator BackToRed(float delay)
     {
-        yield return new WaitForSeconds(delay);;
+        yield return new WaitForSeconds(delay);
+        Debug.Log("CHAAAAAAANGE");
         mat.SetColor("_EmissionColor", new Color(initialColor.r,initialColor.g,initialColor.b,2));
     }
 }
