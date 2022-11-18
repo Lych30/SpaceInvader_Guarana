@@ -8,9 +8,20 @@ public class Controler : MonoBehaviour
 {
     public float speed;
     public float life = 10;
-    public float clampBorder = 10f;
+
+    [SerializeField] private float clampBorder = 10f;
 
     [SerializeField] private Animator anim;
+    [SerializeField] private Material mat_Glow;
+    [SerializeField] private Material mat_Holo;
+
+    private MeshRenderer[] meshs;
+
+    private void Start()
+    {
+        meshs = GetComponentsInChildren<MeshRenderer>();
+        ChangeShipMaterial(mat_Glow);
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -33,6 +44,15 @@ public class Controler : MonoBehaviour
             GameManager.Instance?.Defeat();
             Destroy(gameObject);
         }
+
+        StopCoroutine(HitEffect());
+        StartCoroutine(HitEffect());
+    }
+
+    private void ChangeShipMaterial(Material mat)
+    {
+        for (int i = 0; i < meshs.Length; i++)
+            meshs[i].material = mat;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -42,6 +62,13 @@ public class Controler : MonoBehaviour
             GameManager.Instance.Defeat();
             gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator HitEffect()
+    {
+        ChangeShipMaterial(mat_Holo);
+        yield return new WaitForSeconds(0.8f);
+        ChangeShipMaterial(mat_Glow);
     }
 
     private void OnDrawGizmosSelected()

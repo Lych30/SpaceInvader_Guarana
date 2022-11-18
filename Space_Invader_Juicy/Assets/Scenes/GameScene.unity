@@ -1253,6 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b307423e462a334282aaae2fc94df6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPause: 0
   pauseMenu: {fileID: 84766143767833850}
   tweenPunchScale: {x: 0.2, y: 0.2, z: 0.2}
   duration: 0.35
@@ -1273,6 +1274,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 84766143767833850}
   victoryScreen: {fileID: 8001500422206142232}
   losingScreen: {fileID: 6199787564980978844}
+  refPauseManager: {fileID: 0}
 --- !u!4 &862097192
 Transform:
   m_ObjectHideFlags: 0
@@ -3503,6 +3505,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: life
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: mat_Glow
+      value: 
+      objectReference: {fileID: 2100000, guid: 3bcf13e076fed614c8efc9e09851c3c3, type: 2}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: mat_Holo
+      value: 
+      objectReference: {fileID: 2100000, guid: 990a06ffeda43734e864d545330e132e, type: 2}
     - target: {fileID: 5093795197507061733, guid: 662341db8454c0642a5c315c4445fade,
         type: 3}
       propertyPath: m_Name
