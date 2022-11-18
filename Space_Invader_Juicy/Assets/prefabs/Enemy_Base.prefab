@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 75
-  ScoreValue: 0
+  ScoreValue: 20
   Explode: {fileID: 2264045418537695601}
   mesh: {fileID: 0}
   projectilePrefab: {fileID: 3509705488502690261, guid: 9510a9c0664d0934f8b203e1bfba4f67,
@@ -58,7 +58,6 @@ MonoBehaviour:
   PopScoreGO: {fileID: 8698714191723309908, guid: ecd5d4181e7486b469fd2657a454efbb,
     type: 3}
   mat: {fileID: 0}
-  initialColor: {r: 0, g: 0, b: 0, a: 0}
   exlposionSFX: {fileID: 133057380604590695}
 --- !u!114 &3631328487205731798
 MonoBehaviour:
