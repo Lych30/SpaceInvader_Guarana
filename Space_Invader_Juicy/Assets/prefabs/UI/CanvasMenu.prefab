@@ -82,6 +82,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweenPunchScale: {x: 0.2, y: 0.2, z: 0.2}
   duration: 0.35
+  pauseMenu: {fileID: 0}
+  victoryScreen: {fileID: 0}
+  losingScreen: {fileID: 0}
 --- !u!1 &3357500253283662399
 GameObject:
   m_ObjectHideFlags: 0
