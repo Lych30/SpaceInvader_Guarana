@@ -48,12 +48,9 @@ public class Shoot : MonoBehaviour
             if(GameFeelManager.instance.ShakeGF)
                 impulseSource.GenerateImpulse();
 
-
             if (GameFeelManager.instance.FireGF)
             {
-                part.enableEmission = true;
-                MuzzleFlash.enableEmission = true;
-                WhiteMuzzleFlash.enableEmission = true;
+                GatlingParticles(true);
                 if (!GatlingSound.isPlaying)
                 {
                     GatlingSound.Play();
@@ -65,7 +62,8 @@ public class Shoot : MonoBehaviour
             }
             else
             {
-                if(Timer <= 0)
+                GatlingParticles(false);
+                if (Timer <= 0)
                 {
                     //garbage shoot
                     ShootSound_SpaceInvaders.Play();
@@ -73,15 +71,11 @@ public class Shoot : MonoBehaviour
                     Destroy(bullet, 3);
                     Timer = TimerBtwShots;
                 }
-
             }
-
         }
         else
         {
-            part.enableEmission = false;
-            MuzzleFlash.enableEmission = false;
-            WhiteMuzzleFlash.enableEmission = false;
+            GatlingParticles(false);
             if (GatlingSound.isPlaying)
             {
                 GatlingSound.Stop();
@@ -89,9 +83,15 @@ public class Shoot : MonoBehaviour
         }
     }
 
+    private void GatlingParticles(bool on)
+    {
+        part.enableEmission = on;
+        MuzzleFlash.enableEmission = on;
+        WhiteMuzzleFlash.enableEmission = on;
+    }
+
     private void OnParticleCollision(GameObject other)
     {
-        
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
 
         Rigidbody rb = other.GetComponent<Rigidbody>();
@@ -101,8 +101,6 @@ public class Shoot : MonoBehaviour
         {
             if (rb && other.GetComponent<Invader>())
             {
-                Debug.Log("Hit");
-                
                 Vector3 pos = collisionEvents[i].intersection;
                 //Vector3 force = collisionEvents[i].velocity*10;
                 other.GetComponent<Invader>().TakeDmg(Dmg);//,force);
@@ -110,15 +108,12 @@ public class Shoot : MonoBehaviour
                 float random = Random.Range(0.0f, 1.0f);
                 if (random >= 0.7)
                 {
-                    Debug.Log("SpawnParts");
                     GameObject parts = Instantiate(EnnemyParts, pos, Quaternion.identity);
-                   Destroy(parts, 2);
+                    Destroy(parts, 2);
                 }
             }
             else if (rb && other.GetComponent<EnemyBullet>())
             {
-                Debug.Log("Hit bullet");
-
                 Vector3 pos = collisionEvents[i].intersection;
                 //Vector3 force = collisionEvents[i].velocity*10;
                 other.GetComponent<EnemyBullet>().TakeDmg(Dmg);//,force);
@@ -126,7 +121,6 @@ public class Shoot : MonoBehaviour
                 float random = Random.Range(0.0f, 1.0f);
                 if (random >= 0.7)
                 {
-                    Debug.Log("SpawnParts");
                     GameObject parts = Instantiate(EnnemyParts, pos, Quaternion.identity);
                     Destroy(parts, 2);
                 }
