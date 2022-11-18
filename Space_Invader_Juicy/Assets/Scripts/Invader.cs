@@ -91,6 +91,7 @@ public class Invader : MonoBehaviour
             ScoreManager.instance.AddScore(ScoreValue);
         }
     }
+
     IEnumerator BackToRed(float delay)
     {
         yield return new WaitForSeconds(delay);
