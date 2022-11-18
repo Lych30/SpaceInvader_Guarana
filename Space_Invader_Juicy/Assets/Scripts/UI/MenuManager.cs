@@ -14,20 +14,27 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject victoryScreen;
     [SerializeField] GameObject losingScreen;
 
+    [SerializeField] PauseManager refPauseManager;
+
     void DesactivateMenu()
     {
+        pauseMenu.SetActive(false);
         victoryScreen.SetActive(false);
         losingScreen.SetActive(false);
     }
 
     public void ActivateVictoryScreen()
     {
+        pauseMenu.SetActive(false);
         victoryScreen.SetActive(true);
+        refPauseManager.canPause = false;
     }
 
     public void ActivateLosingScreen()
     {
+        pauseMenu.SetActive(false);
         losingScreen.SetActive(true);
+        refPauseManager.canPause = false;
     }
 
     public void UI_MainMenu(GameObject buttonToPunch)
@@ -35,10 +42,26 @@ public class MenuManager : MonoBehaviour
         buttonToPunch.GetComponent<Button>().enabled = false;
         buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).SetUpdate(true).OnComplete(() =>
         {
-            buttonToPunch.GetComponent<Button>().enabled = true;
             Time.timeScale = 1;
+            refPauseManager.canPause = true;
+            buttonToPunch.GetComponent<Button>().enabled = true;
             SceneManager.LoadScene(0); // 0 = MainMenu Scene
         });
+    }
+
+    public void UI_RestartLevel(GameObject buttonToPunch)
+    {
+        buttonToPunch.GetComponent<Button>().enabled = false;
+
+        buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).SetUpdate(true).OnComplete(() =>
+        {
+
+            Time.timeScale = 1;
+            refPauseManager.canPause = true;
+            buttonToPunch.GetComponent<Button>().enabled = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        });
+
     }
 
     public void UI_StartGame(GameObject buttonToPunch)
@@ -47,9 +70,9 @@ public class MenuManager : MonoBehaviour
 
         buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).SetUpdate(true).OnComplete(() =>
         {
+            Time.timeScale = 1; 
+            refPauseManager.canPause = true;
             buttonToPunch.GetComponent<Button>().enabled = true;
-
-            Time.timeScale = 1;
             SceneManager.LoadScene(1); // 1 = Game Scene 
         });
         
@@ -61,7 +84,6 @@ public class MenuManager : MonoBehaviour
 
         buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).SetUpdate(true).OnComplete(() =>
         {
-
             buttonToPunch.GetComponent<Button>().enabled = true;
 
             Application.Quit();
@@ -70,18 +92,6 @@ public class MenuManager : MonoBehaviour
         
     }
 
-    public void UI_RestartLevel(GameObject buttonToPunch)
-    {
-        buttonToPunch.GetComponent<Button>().enabled = false;
-
-        buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).SetUpdate(true).OnComplete(() =>
-        {
-            buttonToPunch.GetComponent<Button>().enabled = true;
-
-            Time.timeScale = 1;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        });
-
-    }
+    
 
 }

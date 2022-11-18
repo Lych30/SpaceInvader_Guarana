@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
+    public bool canPause;
     bool isPause;
     [SerializeField] GameObject pauseMenu;
 
@@ -22,6 +23,11 @@ public class PauseManager : MonoBehaviour
 
     public void UI_Pause()
     {
+        if (canPause)
+        {
+            return;
+        }
+
         isPause = !isPause;
 
         if (isPause)
