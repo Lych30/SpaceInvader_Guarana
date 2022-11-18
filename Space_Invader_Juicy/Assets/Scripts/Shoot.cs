@@ -5,7 +5,7 @@ using UnityEngine.ParticleSystemJobs;
 using Cinemachine;
 
 
-public class ShootTest : MonoBehaviour
+public class Shoot : MonoBehaviour
 {
     public float Dmg;
     public ParticleSystem part;
