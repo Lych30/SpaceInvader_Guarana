@@ -10,12 +10,18 @@ public class Controler : MonoBehaviour
     public float life = 10;
     public float clampBorder = 10f;
 
+    [SerializeField] private Animator anim;
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        float positionX = transform.position.x + (Input.GetAxis("Horizontal") * speed);
+        float inputX = Input.GetAxis("Horizontal");
+
+        float positionX = transform.position.x + inputX * speed;
         positionX = Mathf.Clamp(positionX, -clampBorder, clampBorder);
         transform.position = new Vector3(positionX, transform.position.y ,transform.position.z);
+
+        anim.SetFloat("Orientation", inputX);
     }
 
     public void Hit()
@@ -29,7 +35,7 @@ public class Controler : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.CompareTag("Ennemy"))
         {

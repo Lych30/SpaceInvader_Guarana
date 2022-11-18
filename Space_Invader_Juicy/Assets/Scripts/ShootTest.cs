@@ -20,6 +20,9 @@ public class ShootTest : MonoBehaviour
     public AudioSource GatlingSound;
     private float TimerBtwShots = 1.0f;
     private float Timer;
+
+    [SerializeField] private Animator anim;
+
     void Start()
     {
         Timer = TimerBtwShots;
@@ -36,8 +39,11 @@ public class ShootTest : MonoBehaviour
         {
             Timer -= Time.deltaTime;
         }
-        
-        if (Input.GetButton("Fire1"))
+
+        bool inputFire = Input.GetButton("Fire1");
+        anim.SetBool("Firing", inputFire && GameFeelManager.instance.FireGF);
+
+        if (inputFire)
         {
             if(GameFeelManager.instance.ShakeGF)
                 impulseSource.GenerateImpulse();
