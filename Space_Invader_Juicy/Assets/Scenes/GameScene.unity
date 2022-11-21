@@ -3526,16 +3526,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
         type: 3}
-      propertyPath: mat_Glow
-      value: 
-      objectReference: {fileID: 2100000, guid: 3bcf13e076fed614c8efc9e09851c3c3, type: 2}
-    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
-        type: 3}
-      propertyPath: mat_Holo
-      value: 
-      objectReference: {fileID: 2100000, guid: 990a06ffeda43734e864d545330e132e, type: 2}
-    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
-        type: 3}
       propertyPath: hitColorAnim.atime1
       value: 32768
       objectReference: {fileID: 0}

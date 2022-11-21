@@ -29561,6 +29561,68 @@ MonoBehaviour:
   life: 10
   clampBorder: 15
   anim: {fileID: 5093795197389903282}
+  mat_Glow: {fileID: 2100000, guid: 3bcf13e076fed614c8efc9e09851c3c3, type: 2}
+  mat_Holo: {fileID: 2100000, guid: 990a06ffeda43734e864d545330e132e, type: 2}
+  hitBaseColorAnim:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.3137255, b: 1, a: 0.88235295}
+    key1: {r: 0, g: 0.03529412, b: 0.11372549, a: 0.7058824}
+    key2: {r: 0, g: 0.03529412, b: 0.11372549, a: 0.88235295}
+    key3: {r: 0, g: 0.3137255, b: 1, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 26214
+    ctime2: 39321
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 32768
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 3
+  hitHighlightColorAnim:
+    serializedVersion: 2
+    key0: {r: 0, g: 105.3328, b: 140.4438, a: 0.88235295}
+    key1: {r: 0, g: 0.23137255, b: 0.3019608, a: 0.54901963}
+    key2: {r: 0, g: 0.23137255, b: 0.3019608, a: 0.88235295}
+    key3: {r: 0, g: 105.3328, b: 140.4438, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 386
+    ctime1: 21758
+    ctime2: 43384
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 32768
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 3
+  hitAnimDuration: 0.3
+  animationLoops: 3
 --- !u!1 &5093795197544109518
 GameObject:
   m_ObjectHideFlags: 0
