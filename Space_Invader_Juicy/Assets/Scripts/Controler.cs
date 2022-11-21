@@ -67,7 +67,10 @@ public class Controler : MonoBehaviour
     private void ChangeShipMaterial(Material mat)
     {
         for (int i = 0; i < meshs.Length; i++)
-            meshs[i].material = mat;
+        {
+            if (meshs[i].tag != "ScreenFirstPerson")
+                meshs[i].material = mat;
+        }
     }
 
     private void SetHologramColor(Color baseColor, Color highlight)
