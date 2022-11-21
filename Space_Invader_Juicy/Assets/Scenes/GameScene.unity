@@ -1274,7 +1274,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 84766143767833850}
   victoryScreen: {fileID: 8001500422206142232}
   losingScreen: {fileID: 6199787564980978844}
-  refPauseManager: {fileID: 0}
+  refPauseManager: {fileID: 862097190}
 --- !u!4 &862097192
 Transform:
   m_ObjectHideFlags: 0

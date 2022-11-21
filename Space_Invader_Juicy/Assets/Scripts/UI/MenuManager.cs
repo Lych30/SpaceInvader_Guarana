@@ -70,8 +70,11 @@ public class MenuManager : MonoBehaviour
 
         buttonToPunch.GetComponent<RectTransform>().transform.DOPunchScale(tweenPunchScale, duration).SetUpdate(true).OnComplete(() =>
         {
-            Time.timeScale = 1; 
-            refPauseManager.canPause = true;
+            Time.timeScale = 1;
+            if (refPauseManager != null)
+            {
+                refPauseManager.canPause = true;
+            }
             buttonToPunch.GetComponent<Button>().enabled = true;
             SceneManager.LoadScene(1); // 1 = Game Scene 
         });

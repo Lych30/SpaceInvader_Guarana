@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     public void Defeat()
     {
         refMenuManager.ActivateLosingScreen();
+        Time.timeScale = 0;
     }
 
     public void ReloadScene()
