@@ -1,18 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class LazerDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]private ParticleSystem lazer;
+    public List<ParticleCollisionEvent> collisionEvents;
+    public float Dmg;
+    private void Start()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+        collisionEvents = new List<ParticleCollisionEvent>();
+    }
+    private void OnParticleCollision(GameObject other)
     {
-        
+        int numCollisionEvents = lazer.GetCollisionEvents(other, collisionEvents);
+
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        int i = 0;
+
+        while (i < numCollisionEvents)
+        {
+            if (rb && other.GetComponent<Invader>())
+            {
+                
+                other.GetComponent<Invader>().TakeDmg(Dmg);//,force);
+
+               
+            }
+            else if (rb && other.GetComponent<EnemyBullet>())
+            {
+             
+                //Vector3 force = collisionEvents[i].velocity*10;
+                other.GetComponent<EnemyBullet>().TakeDmg(Dmg);//,force);
+
+            }
+            i++;
+        }
     }
 }
