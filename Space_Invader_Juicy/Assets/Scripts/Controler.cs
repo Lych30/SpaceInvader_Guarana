@@ -12,8 +12,14 @@ public class Controler : MonoBehaviour
     [SerializeField] private float clampBorder = 10f;
 
     [SerializeField] private Animator anim;
+
+    [Header("Materials Control")]
     [SerializeField] private Material mat_Glow;
     [SerializeField] private Material mat_Holo;
+    [SerializeField] [GradientUsage(true)] private Gradient hitBaseColorAnim;
+    [SerializeField] [GradientUsage(true)] private Gradient hitHighlightColorAnim;
+    [SerializeField] private float hitAnimDuration = 0.3f;
+    [SerializeField] private int animationLoops = 3;
 
     private MeshRenderer[] meshs;
 
@@ -35,6 +41,15 @@ public class Controler : MonoBehaviour
         anim.SetFloat("Orientation", inputX);
     }
 
+    private void Update()
+    {
+       if(Input.GetKeyDown(KeyCode.H))
+        {
+            StopCoroutine(HitEffect());
+            StartCoroutine(HitEffect());
+        }
+    }
+
     public void Hit()
     {
         life--;
@@ -52,7 +67,20 @@ public class Controler : MonoBehaviour
     private void ChangeShipMaterial(Material mat)
     {
         for (int i = 0; i < meshs.Length; i++)
-            meshs[i].material = mat;
+        {
+            if (meshs[i].tag != "ScreenFirstPerson")
+                meshs[i].material = mat;
+        }
+    }
+
+    private void SetHologramColor(Color baseColor, Color highlight)
+    {
+        for (int i = 0; i < meshs.Length; i++)
+        {
+            var mesh = meshs[i];
+            mesh.material.SetColor("Base_Color", baseColor);
+            mesh.material.SetColor("Highlight_Color", highlight);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -67,7 +95,17 @@ public class Controler : MonoBehaviour
     private IEnumerator HitEffect()
     {
         ChangeShipMaterial(mat_Holo);
-        yield return new WaitForSeconds(0.8f);
+
+        for (int i = 0; i < animationLoops; i++)
+        {
+            for (float t = 0; t <= hitAnimDuration; t += Time.deltaTime)
+            {
+                float v = t / hitAnimDuration;
+                SetHologramColor(hitBaseColorAnim.Evaluate(v), hitHighlightColorAnim.Evaluate(v));
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
         ChangeShipMaterial(mat_Glow);
     }
 
