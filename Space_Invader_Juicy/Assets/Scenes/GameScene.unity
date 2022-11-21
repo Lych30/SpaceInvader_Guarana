@@ -2085,32 +2085,46 @@ MonoBehaviour:
   pathPoints:
   - point: {fileID: 1648446501}
     method: 0
+    direction: 0
   - point: {fileID: 869298996}
     method: 0
+    direction: 0
   - point: {fileID: 198519803}
     method: 1
+    direction: 0
   - point: {fileID: 896335446}
     method: 0
+    direction: 0
   - point: {fileID: 1071726018}
     method: 1
+    direction: 0
   - point: {fileID: 685790631}
     method: 0
+    direction: 0
   - point: {fileID: 1911898454}
     method: 1
+    direction: 0
   - point: {fileID: 2052987692}
     method: 0
+    direction: 0
   - point: {fileID: 1691253505}
     method: 1
+    direction: 0
   - point: {fileID: 490245788}
     method: 0
+    direction: 0
   - point: {fileID: 1544217937}
     method: 1
+    direction: 0
   - point: {fileID: 1494803153}
     method: 0
+    direction: 0
   - point: {fileID: 1929462230}
     method: 1
+    direction: 0
   - point: {fileID: 187255626}
     method: 0
+    direction: 0
   UseTeleportOption: 0
 --- !u!4 &1216799334
 Transform:
@@ -3520,6 +3534,311 @@ PrefabInstance:
       propertyPath: mat_Holo
       value: 
       objectReference: {fileID: 2100000, guid: 990a06ffeda43734e864d545330e132e, type: 2}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.atime1
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.ctime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.ctime1
+      value: 26214
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.ctime2
+      value: 39321
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.ctime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key0.a
+      value: 0.88235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key0.g
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key1.a
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key1.b
+      value: 0.11372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key1.g
+      value: 0.03529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key2.a
+      value: 0.88235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key2.b
+      value: 0.11372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key2.g
+      value: 0.03529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key3.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.key3.g
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.atime1
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.ctime1
+      value: 26214
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.ctime2
+      value: 39321
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.ctime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key0.a
+      value: 0.88235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key0.g
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key1.a
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key1.b
+      value: 0.11372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key1.g
+      value: 0.03529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key2.a
+      value: 0.88235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key2.b
+      value: 0.11372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key2.g
+      value: 0.03529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key3.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.key3.g
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitColorAnim.m_NumColorKeys
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.atime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.atime1
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.ctime0
+      value: 386
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.ctime1
+      value: 21758
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.ctime2
+      value: 43384
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.ctime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key0.a
+      value: 0.88235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key0.b
+      value: 140.4438
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key0.g
+      value: 105.3328
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key1.a
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key1.b
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key1.g
+      value: 0.23137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key2.a
+      value: 0.88235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key2.b
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key2.g
+      value: 0.23137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key3.b
+      value: 140.4438
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.key3.g
+      value: 105.3328
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitBaseColorAnim.m_NumColorKeys
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093795197507061732, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: hitHighlightColorAnim.m_NumColorKeys
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5093795197507061733, guid: 662341db8454c0642a5c315c4445fade,
         type: 3}
       propertyPath: m_Name
