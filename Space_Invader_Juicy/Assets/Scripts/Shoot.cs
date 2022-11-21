@@ -20,8 +20,12 @@ public class Shoot : MonoBehaviour
     public AudioSource GatlingSound;
     private float TimerBtwShots = 1.0f;
     private float Timer;
+    public FuryBarScript furyBarScript;
+    public GameObject LazerGO;
+    public CinemachineImpulseSource LazerShake;
 
-    [SerializeField] private Animator anim;
+
+    //[SerializeField] private Animator anim;
 
     void Start()
     {
@@ -41,16 +45,25 @@ public class Shoot : MonoBehaviour
         }
 
         bool inputFire = Input.GetButton("Fire1");
-        anim.SetBool("Firing", inputFire && GameFeelManager.instance.FireGF);
+        //anim.SetBool("Firing", inputFire && GameFeelManager.instance.FireGF);
+
+        if(Input.GetKeyDown(KeyCode.L) && furyBarScript.FurySlider.value >= furyBarScript.FurySlider.maxValue)
+        {
+            //AHAH big lazer go BRRRRRRR
+            Debug.Log("BRRRRRR");
+            StartCoroutine(BigLazerGoBRRR());
+        }
+
 
         if (inputFire)
         {
             if(GameFeelManager.instance.ShakeGF)
                 impulseSource.GenerateImpulse();
 
-            if (GameFeelManager.instance.FireGF)
+            if (GameFeelManager.instance.FireGF && !LazerGO.activeInHierarchy)
             {
                 GatlingParticles(true);
+                furyBarScript.AddFury(1);
                 if (!GatlingSound.isPlaying)
                 {
                     GatlingSound.Play();
@@ -68,6 +81,7 @@ public class Shoot : MonoBehaviour
                     //garbage shoot
                     ShootSound_SpaceInvaders.Play();
                     GameObject bullet = Instantiate(StandarBullet, transform.position, Quaternion.identity);
+                    
                     Destroy(bullet, 3);
                     Timer = TimerBtwShots;
                 }
@@ -127,5 +141,19 @@ public class Shoot : MonoBehaviour
             }
             i++;
         }
+    }
+
+    IEnumerator BigLazerGoBRRR()
+    {
+        LazerGO.SetActive(true);
+        
+        
+        while (furyBarScript.FurySlider.value > 0)
+        {
+            LazerShake.GenerateImpulse();
+            furyBarScript.AddFury(-10);
+            yield return new WaitForFixedUpdate();
+        }
+        LazerGO.SetActive(false);
     }
 }
