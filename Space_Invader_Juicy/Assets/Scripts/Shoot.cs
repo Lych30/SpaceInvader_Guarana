@@ -1,21 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.ParticleSystemJobs;
 using Cinemachine;
 using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
     public InputActionAsset test;
-    public float Dmg;
-    public ParticleSystem part;
-    public ParticleSystem MuzzleFlash;
-    public ParticleSystem WhiteMuzzleFlash;
-    public GameObject EnnemyParts;
-    ParticleSystemSubEmitterProperties subEmitter;
+    
+    public GameObject[] GatlingArray;
+    [SerializeField]ParticleSystem[] part;
+    [SerializeField] ParticleSystem[] MuzzleFlash;
+    [SerializeField] ParticleSystem[] WhiteMuzzleFlash;
     CinemachineImpulseSource impulseSource;
-    public List<ParticleCollisionEvent> collisionEvents;
     public GameObject StandarBullet;
     public AudioSource ShootSound_SpaceInvaders;
     public AudioSource GatlingSound;
@@ -23,7 +20,7 @@ public class Shoot : MonoBehaviour
     private float Timer;
     public FuryBarScript furyBarScript;
     public GameObject LazerGO;
-    public CinemachineImpulseSource LazerShake;
+    CinemachineImpulseSource LazerShake;
 
     public InputActionReference rightHandTrigger;
     public InputActionReference leftHandTrigger;
@@ -36,11 +33,31 @@ public class Shoot : MonoBehaviour
     {
         Timer = TimerBtwShots;
         impulseSource = GetComponent<CinemachineImpulseSource>();
-        part = GetComponent<ParticleSystem>();
-        part.enableEmission = false;
-        MuzzleFlash.enableEmission = false;
-        WhiteMuzzleFlash.enableEmission = false;
-        collisionEvents = new List<ParticleCollisionEvent>();
+        LazerShake = LazerGO.GetComponent<CinemachineImpulseSource>();
+
+        //Arrays Init
+        part = new ParticleSystem[GatlingArray.Length];
+        MuzzleFlash = new ParticleSystem[GatlingArray.Length];
+        WhiteMuzzleFlash = new ParticleSystem[GatlingArray.Length];
+        for (int i = 0; i < GatlingArray.Length;i++)
+        {
+            part[i] = GatlingArray[i].transform.GetChild(0).GetComponent<ParticleSystem>();
+            MuzzleFlash[i] = GatlingArray[i].transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
+            WhiteMuzzleFlash[i] = GatlingArray[i].transform.GetChild(1).GetChild(1).GetComponent<ParticleSystem>();
+        }
+        foreach(ParticleSystem particles in part)
+        {
+            particles.enableEmission = false;
+        }
+        foreach (ParticleSystem particles in MuzzleFlash)
+        {
+            particles.enableEmission = false;
+        }
+        foreach (ParticleSystem particles in WhiteMuzzleFlash)
+        {
+            particles.enableEmission = false;
+        }
+        
 
         rightTriggerAction = rightHandTrigger.ToInputAction();
     }
@@ -51,14 +68,20 @@ public class Shoot : MonoBehaviour
             Timer -= Time.deltaTime;
         }
 
-        bool inputFire = rightTriggerAction.IsPressed();
+        //bool inputFire = rightTriggerAction.IsPressed();
+        bool inputFire = false;
+
+        if (Input.GetButton("Fire"))
+        {
+            inputFire = true;
+        }
         //anim.SetBool("Firing", inputFire && GameFeelManager.instance.FireGF);
         if (furyBarScript)
         {
             if(Input.GetKeyDown(KeyCode.L) && furyBarScript.FurySlider.value >= furyBarScript.FurySlider.maxValue)
             {
                 //AHAH big lazer go BRRRRRRR
-                Debug.Log("BRRRRRR");
+                
                 StartCoroutine(BigLazerGoBRRR());
             }
         }
@@ -72,6 +95,7 @@ public class Shoot : MonoBehaviour
 
             if (GameFeelManager.instance.FireGF && !LazerGO.activeInHierarchy)
             {
+                Debug.Log("Gatling");
                 GatlingParticles(true);
                 if(furyBarScript)
                     furyBarScript.AddFury(1);
@@ -86,6 +110,7 @@ public class Shoot : MonoBehaviour
             }
             else
             {
+                Debug.Log("Basic");
                 GatlingParticles(false);
                 if (Timer <= 0)
                 {
@@ -106,57 +131,26 @@ public class Shoot : MonoBehaviour
                 GatlingSound.Stop();
             }
         }
+        
     }
 
     private void GatlingParticles(bool on)
     {
-        part.enableEmission = on;
-        MuzzleFlash.enableEmission = on;
-        WhiteMuzzleFlash.enableEmission = on;
-    }
-
-    private void OnParticleCollision(GameObject other)
-    {
-        int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        int i = 0;
-
-        while (i < numCollisionEvents)
+        foreach (ParticleSystem particles in part)
         {
-            if (rb && other.GetComponent<Invader>())
-            {
-                Vector3 pos = collisionEvents[i].intersection;
-                //Vector3 force = collisionEvents[i].velocity*10;
-                other.GetComponent<Invader>().TakeDmg(Dmg);//,force);
-
-                float random = Random.Range(0.0f, 1.0f);
-                if (random >= 0.7)
-                {
-                    GameObject parts = Instantiate(EnnemyParts, pos, Quaternion.identity);
-                    Destroy(parts, 2);
-                }
-            }
-            else if (rb && other.GetComponent<EnemyBullet>())
-            {
-                Vector3 pos = collisionEvents[i].intersection;
-                //Vector3 force = collisionEvents[i].velocity*10;
-                other.GetComponent<EnemyBullet>().TakeDmg(Dmg);//,force);
-
-                float random = Random.Range(0.0f, 1.0f);
-                if (random >= 0.7)
-                {
-                    GameObject parts = Instantiate(EnnemyParts, pos, Quaternion.identity);
-                    Destroy(parts, 2);
-                }
-            }
-            i++;
+            particles.enableEmission = on;
+        }
+        foreach (ParticleSystem particles in MuzzleFlash)
+        {
+            particles.enableEmission = on;
+        }
+        foreach (ParticleSystem particles in WhiteMuzzleFlash)
+        {
+            particles.enableEmission = on;
         }
     }
 
-    private void OnEnable()
-    {
-    }
+    
 
     IEnumerator BigLazerGoBRRR()
     {
