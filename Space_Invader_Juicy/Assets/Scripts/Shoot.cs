@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
+    public InputActionAsset test;
     public float Dmg;
     public ParticleSystem part;
     public ParticleSystem MuzzleFlash;
@@ -151,6 +152,10 @@ public class Shoot : MonoBehaviour
             }
             i++;
         }
+    }
+
+    private void OnEnable()
+    {
     }
 
     IEnumerator BigLazerGoBRRR()
