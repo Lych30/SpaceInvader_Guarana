@@ -32258,6 +32258,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3513471844642511884, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5093795195586815139, guid: 662341db8454c0642a5c315c4445fade,
         type: 3}
       propertyPath: looping
@@ -32382,6 +32387,16 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806609858514346566, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806609858514346566, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
         type: 3}
