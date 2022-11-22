@@ -11,7 +11,9 @@ public class Controler : MonoBehaviour
 
     [SerializeField] private float clampBorder = 10f;
 
+    [Header("Mesh Animation")]
     [SerializeField] private Animator anim;
+    [SerializeField][Range(0f, 1f)] private float tiltAmount = 1f;
 
     [Header("Materials Control")]
     [SerializeField] private Material mat_Glow;
@@ -21,10 +23,17 @@ public class Controler : MonoBehaviour
     [SerializeField] private float hitAnimDuration = 0.3f;
     [SerializeField] private int animationLoops = 3;
 
+    [Header("Debug Options")]
+    [SerializeField] private bool freezePosition = false;
+
     private MeshRenderer[] meshs;
 
     private void Start()
     {
+#if !UNITY_EDITOR
+        freezePosition = false;
+#endif
+
         meshs = GetComponentsInChildren<MeshRenderer>();
         ChangeShipMaterial(mat_Glow);
     }
@@ -34,11 +43,20 @@ public class Controler : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
 
-        float positionX = transform.position.x + inputX * speed;
-        positionX = Mathf.Clamp(positionX, -clampBorder, clampBorder);
-        transform.position = new Vector3(positionX, transform.position.y ,transform.position.z);
+        if (!freezePosition)
+        {
+            float positionX = transform.position.x + inputX * speed;
+            positionX = Mathf.Clamp(positionX, -clampBorder, clampBorder);
+            transform.position = new Vector3(positionX, transform.position.y, transform.position.z);
+        }
 
-        anim.SetFloat("Orientation", inputX);
+        float orient = anim.GetFloat("Orientation");
+        float distance = Mathf.Abs(inputX - orient);
+        if (distance >= 0.01f)
+        {
+            inputX = Mathf.Lerp(orient, inputX, distance >= .4f ? .25f : .5f);
+            anim.SetFloat("Orientation", inputX * tiltAmount);
+        }
     }
 
     private void Update()
