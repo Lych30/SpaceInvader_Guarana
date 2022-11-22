@@ -46,13 +46,16 @@ public class Shoot : MonoBehaviour
 
         bool inputFire = Input.GetButton("Fire1");
         //anim.SetBool("Firing", inputFire && GameFeelManager.instance.FireGF);
-
-        if(Input.GetKeyDown(KeyCode.L) && furyBarScript.FurySlider.value >= furyBarScript.FurySlider.maxValue)
+        if (furyBarScript)
         {
-            //AHAH big lazer go BRRRRRRR
-            Debug.Log("BRRRRRR");
-            StartCoroutine(BigLazerGoBRRR());
+            if(Input.GetKeyDown(KeyCode.L) && furyBarScript.FurySlider.value >= furyBarScript.FurySlider.maxValue)
+            {
+                //AHAH big lazer go BRRRRRRR
+                Debug.Log("BRRRRRR");
+                StartCoroutine(BigLazerGoBRRR());
+            }
         }
+
 
 
         if (inputFire)
@@ -63,7 +66,8 @@ public class Shoot : MonoBehaviour
             if (GameFeelManager.instance.FireGF && !LazerGO.activeInHierarchy)
             {
                 GatlingParticles(true);
-                furyBarScript.AddFury(1);
+                if(furyBarScript)
+                    furyBarScript.AddFury(1);
                 if (!GatlingSound.isPlaying)
                 {
                     GatlingSound.Play();
