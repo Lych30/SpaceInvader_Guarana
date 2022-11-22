@@ -9,9 +9,9 @@ public class Shoot : MonoBehaviour
     public InputActionAsset test;
     
     public GameObject[] GatlingArray;
-    [SerializeField]ParticleSystem[] part;
-    [SerializeField] ParticleSystem[] MuzzleFlash;
-    [SerializeField] ParticleSystem[] WhiteMuzzleFlash;
+    ParticleSystem[] part;
+    ParticleSystem[] MuzzleFlash;
+    ParticleSystem[] WhiteMuzzleFlash;
     CinemachineImpulseSource impulseSource;
     public GameObject StandarBullet;
     public AudioSource ShootSound_SpaceInvaders;
