@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ParticleSystemJobs;
 using Cinemachine;
-
+using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
@@ -24,6 +24,10 @@ public class Shoot : MonoBehaviour
     public GameObject LazerGO;
     public CinemachineImpulseSource LazerShake;
 
+    public InputActionReference rightHandTrigger;
+    public InputActionReference leftHandTrigger;
+    private InputAction rightTriggerAction;
+    private InputAction leftTriggerAction;
 
     //[SerializeField] private Animator anim;
 
@@ -36,6 +40,8 @@ public class Shoot : MonoBehaviour
         MuzzleFlash.enableEmission = false;
         WhiteMuzzleFlash.enableEmission = false;
         collisionEvents = new List<ParticleCollisionEvent>();
+
+        rightTriggerAction = rightHandTrigger.ToInputAction();
     }
     private void Update()
     {
@@ -44,7 +50,7 @@ public class Shoot : MonoBehaviour
             Timer -= Time.deltaTime;
         }
 
-        bool inputFire = Input.GetButton("Fire1");
+        bool inputFire = rightTriggerAction.IsPressed();
         //anim.SetBool("Firing", inputFire && GameFeelManager.instance.FireGF);
         if (furyBarScript)
         {

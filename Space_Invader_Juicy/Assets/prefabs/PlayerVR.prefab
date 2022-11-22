@@ -5051,6 +5051,10 @@ MonoBehaviour:
   furyBarScript: {fileID: 0}
   LazerGO: {fileID: 2525576840333056532}
   LazerShake: {fileID: 5233229838087493685}
+  rightHandTrigger: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  leftHandTrigger: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!114 &6589898574986429324
 MonoBehaviour:
   m_ObjectHideFlags: 0
