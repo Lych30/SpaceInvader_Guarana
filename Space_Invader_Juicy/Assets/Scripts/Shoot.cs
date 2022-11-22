@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Shoot : MonoBehaviour
 {
     public InputActionAsset test;
+
+
+    public Gradient epilepsyWarning;
+    Volume volume;
     
+
+
     public GameObject[] GatlingArray;
     ParticleSystem[] part;
     ParticleSystem[] MuzzleFlash;
@@ -31,6 +39,8 @@ public class Shoot : MonoBehaviour
 
     void Start()
     {
+        volume = Camera.main.GetComponent<Volume>();
+
         Timer = TimerBtwShots;
         impulseSource = GetComponent<CinemachineImpulseSource>();
         LazerShake = LazerGO.GetComponent<CinemachineImpulseSource>();
@@ -155,14 +165,36 @@ public class Shoot : MonoBehaviour
     IEnumerator BigLazerGoBRRR()
     {
         LazerGO.SetActive(true);
-        
-        
+
+        Bloom bloom;
         while (furyBarScript.FurySlider.value > 0)
         {
             LazerShake.GenerateImpulse();
             furyBarScript.AddFury(-10);
+            
+            if (volume.profile.TryGet<Bloom>(out bloom))
+            {
+                bloom.tint.overrideState = true;
+                //La version soft
+                bloom.tint.value = epilepsyWarning.Evaluate(furyBarScript.FurySlider.value / furyBarScript.FurySlider.maxValue);
+                // La version de l'épilepsie
+                //bloom.tint.value = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255),255);
+          
+                
+                Debug.Log(furyBarScript.FurySlider.value / furyBarScript.FurySlider.maxValue);
+                
+            }
+            
+
             yield return new WaitForFixedUpdate();
         }
+        //Return to normal if necessary
+        if (volume.profile.TryGet<Bloom>(out bloom))
+        {
+            bloom.tint.overrideState = true;
+            bloom.tint.value = Color.red;
+        }
+        
         LazerGO.SetActive(false);
     }
 }

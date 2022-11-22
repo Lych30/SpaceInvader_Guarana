@@ -32385,10 +32385,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
         type: 3}
+      propertyPath: Cam
+      value: 
+      objectReference: {fileID: 1895565188}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
       propertyPath: test
       value: 
       objectReference: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f,
         type: 3}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: furyBarScript
+      value: 
+      objectReference: {fileID: 2118771824}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: mVolumeProfile
+      value: 
+      objectReference: {fileID: 1895565191}
     - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
         type: 3}
       propertyPath: leftHandTrigger
@@ -32403,6 +32418,166 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
         type: 3}
+      propertyPath: epilepsyWarning.ctime1
+      value: 10023
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.ctime2
+      value: 19468
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.ctime3
+      value: 29876
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.ctime4
+      value: 38743
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.ctime5
+      value: 48188
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.ctime6
+      value: 58018
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.ctime7
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key1.b
+      value: 0.7849541
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key1.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key2.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key2.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key2.r
+      value: 0.5031414
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key3.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key3.g
+      value: 0.09511137
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key3.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key4.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key4.g
+      value: 0.9445591
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key4.r
+      value: 0.20392156
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key5.b
+      value: 0.3009112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key5.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key5.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key6.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key6.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key6.r
+      value: 0.45789814
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key7.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key7.g
+      value: 0.83971334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.key7.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
       propertyPath: GatlingArray.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -32410,6 +32585,11 @@ PrefabInstance:
         type: 3}
       propertyPath: GatlingArray.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
+      propertyPath: epilepsyWarning.m_NumColorKeys
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662341db8454c0642a5c315c4445fade, type: 3}
