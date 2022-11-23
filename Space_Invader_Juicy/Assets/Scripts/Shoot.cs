@@ -18,9 +18,9 @@ public class Shoot : MonoBehaviour
     ParticleSystem[] MuzzleFlash;
     ParticleSystem[] WhiteMuzzleFlash;
     public GameObject[] GatlingArrayVR;
-    ParticleSystem[] partVR;
-    ParticleSystem[] MuzzleFlashVR;
-    ParticleSystem[] WhiteMuzzleFlashVR;
+    [SerializeField]ParticleSystem[] partVR;
+    [SerializeField] ParticleSystem[] MuzzleFlashVR;
+    [SerializeField] ParticleSystem[] WhiteMuzzleFlashVR;
     CinemachineImpulseSource impulseSource;
     public GameObject StandarBullet;
     public AudioSource ShootSound_SpaceInvaders;
@@ -46,6 +46,11 @@ public class Shoot : MonoBehaviour
         part = new ParticleSystem[GatlingArray.Length];
         MuzzleFlash = new ParticleSystem[GatlingArray.Length];
         WhiteMuzzleFlash = new ParticleSystem[GatlingArray.Length];
+
+        partVR = new ParticleSystem[GatlingArrayVR.Length];
+        MuzzleFlashVR = new ParticleSystem[GatlingArrayVR.Length];
+        WhiteMuzzleFlashVR = new ParticleSystem[GatlingArrayVR.Length];
+
         for (int i = 0; i < GatlingArray.Length;i++)
         {
             part[i] = GatlingArray[i].transform.GetChild(0).GetComponent<ParticleSystem>();
