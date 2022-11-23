@@ -84,7 +84,8 @@ public class Invader : MonoBehaviour
             if (GameFeelManager.instance.PopScoreGF)
             {
                 GameObject PopScore = Instantiate(PopScoreGO, transform.position, Quaternion.identity);
-                PopScore.GetComponentInChildren<TextMeshPro>().text = ScoreValue.ToString();
+                PopScore.transform.GetChild(0).GetComponent<TextMeshPro>().text = ScoreValue.ToString();
+                PopScore.transform.GetChild(1).GetComponent<TextMeshPro>().text = ScoreValue.ToString();
                 Destroy(PopScore, 1);
             }
             
