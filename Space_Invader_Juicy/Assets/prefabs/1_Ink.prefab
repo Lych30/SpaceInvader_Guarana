@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8291325350459372829}
   - component: {fileID: 1661714991932231770}
   m_Layer: 8
-  m_Name: MeshExplosion (1)
+  m_Name: MeshExplosion VR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5309,7 +5309,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d9dfd23cc1b1bfa479b68e13752443a9,
         type: 3}
       propertyPath: m_Name
-      value: space_invader_1_animation (1)
+      value: space_invader_1_animation VR
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d9dfd23cc1b1bfa479b68e13752443a9,
         type: 3}
@@ -5407,6 +5407,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1827226128182048838, guid: d9dfd23cc1b1bfa479b68e13752443a9,
         type: 3}
+    - target: {fileID: 3631328487205731798, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3999944911705545587}
+    - target: {fileID: 3631328487205731798, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: animatorVR
+      value: 
+      objectReference: {fileID: 5965584804651232796}
     - target: {fileID: 5369465304942286641, guid: 41d201dcf230f0f4db4c83c50db64e9d,
         type: 3}
       propertyPath: m_Name

@@ -48770,7 +48770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584280805956561530}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2.16, z: 0.97}
+  m_LocalPosition: {x: 0, y: 2.16, z: 8.11}
   m_LocalScale: {x: 2.1715028, y: 2.1715028, z: 2.1715028}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58436,7 +58436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1467147223947708139
 Transform:
   m_ObjectHideFlags: 0
@@ -63365,7 +63365,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -78204,6 +78204,9 @@ MonoBehaviour:
   GatlingArrayVR:
   - {fileID: 7683917712715705326}
   - {fileID: 3583181570134887459}
+  partVR: []
+  MuzzleFlashVR: []
+  WhiteMuzzleFlashVR: []
   StandarBullet: {fileID: 8420228860727084187, guid: 1e1774e8af9599f46985eba714090c33,
     type: 3}
   ShootSound_SpaceInvaders: {fileID: 4314007338013115958}
@@ -117457,7 +117460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6416649465640372045}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.16, z: 8.11}
   m_LocalScale: {x: 2.1715028, y: 2.1715028, z: 2.1715028}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -121491,7 +121494,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     widthOverTrail:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -121499,31 +121502,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.45127448
           value: 1
-          inSlope: 0.08355608
-          outSlope: 0.08355608
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.20818286
-        - serializedVersion: 3
-          time: 0.9743918
-          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -2
+          outSlope: -2
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -133835,7 +133829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8132038600595388812}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.77, z: 0}
+  m_LocalPosition: {x: 0, y: 2.16, z: 8.11}
   m_LocalScale: {x: 2.1715028, y: 2.1715028, z: 2.1715028}
   m_ConstrainProportionsScale: 0
   m_Children: []

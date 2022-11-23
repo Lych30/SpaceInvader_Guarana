@@ -4,14 +4,16 @@ public class AnimationPlayer : MonoBehaviour
 {
     [SerializeField] private AnimationClip idle;
 
-    private Animator animator;
+    private Animator[] animatorList;
+    //[SerializeField] private Animator animator;
+    //[SerializeField] private Animator animatorVR;
 
     private bool useAnimation = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
+        animatorList = GetComponentsInChildren<Animator>();
     }
 
     private void Update()
@@ -20,7 +22,14 @@ public class AnimationPlayer : MonoBehaviour
         if(useAnimation != GameFeelManager.instance.EnnemyAnimGF)
         {
             useAnimation = GameFeelManager.instance.EnnemyAnimGF;
-            animator.Play(useAnimation ? idle.name : "Rest");
+
+            foreach (var item in animatorList)
+            {
+                item.Play(useAnimation ? idle.name : "Rest");
+            }
+
+            //animator.Play(useAnimation ? idle.name : "Rest");
+            //animatorVR.Play(useAnimation ? idle.name : "Rest");
         }
             
 
