@@ -17,6 +17,10 @@ public class Shoot : MonoBehaviour
     ParticleSystem[] part;
     ParticleSystem[] MuzzleFlash;
     ParticleSystem[] WhiteMuzzleFlash;
+    public GameObject[] GatlingArrayVR;
+    ParticleSystem[] partVR;
+    ParticleSystem[] MuzzleFlashVR;
+    ParticleSystem[] WhiteMuzzleFlashVR;
     CinemachineImpulseSource impulseSource;
     public GameObject StandarBullet;
     public AudioSource ShootSound_SpaceInvaders;
@@ -60,9 +64,28 @@ public class Shoot : MonoBehaviour
         {
             particles.enableEmission = false;
         }
-        
 
-      
+        for (int i = 0; i < GatlingArray.Length; i++)
+        {
+            part[i] = GatlingArray[i].transform.GetChild(0).GetComponent<ParticleSystem>();
+            MuzzleFlash[i] = GatlingArray[i].transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
+            WhiteMuzzleFlash[i] = GatlingArray[i].transform.GetChild(1).GetChild(1).GetComponent<ParticleSystem>();
+        }
+        foreach (ParticleSystem particles in partVR)
+        {
+            particles.enableEmission = false;
+        }
+        foreach (ParticleSystem particles in MuzzleFlashVR)
+        {
+            particles.enableEmission = false;
+        }
+        foreach (ParticleSystem particles in WhiteMuzzleFlashVR)
+        {
+            particles.enableEmission = false;
+        }
+
+
+
     }
     private void Update()
     {
@@ -100,10 +123,10 @@ public class Shoot : MonoBehaviour
 
             if (GameFeelManager.instance.FireGF && !LazerGO.activeInHierarchy)
             {
-                if(inputFire)
+                if(inputFire && GatlingArray.Length > 0)
                     GatlingParticlesMouse(true);
 
-                if (inputFireLeft || inputFireRight)
+                if ((inputFireLeft || inputFireRight) && GatlingArrayVR.Length == 2)
                     GatlingParticlesVR(inputFireLeft, inputFireRight);
 
                 if (furyBarScript)
@@ -135,6 +158,7 @@ public class Shoot : MonoBehaviour
         else
         {
             GatlingParticlesMouse(false);
+            GatlingParticlesVR(false, false);
             if (GatlingSound.isPlaying)
             {
                 GatlingSound.Stop();
@@ -163,18 +187,18 @@ public class Shoot : MonoBehaviour
     {
         if(part.Length == 2)
         {
-            part[0].enableEmission = Left;
-            part[1].enableEmission = Right;
+            partVR[0].enableEmission = Left;
+            partVR[1].enableEmission = Right;
         }
         if(MuzzleFlash.Length == 2)
         {
-            MuzzleFlash[0].enableEmission = Left;
-            MuzzleFlash[1].enableEmission = Right;
+            MuzzleFlashVR[0].enableEmission = Left;
+            MuzzleFlashVR[1].enableEmission = Right;
         }
         if(WhiteMuzzleFlash.Length == 2)
         {
-            WhiteMuzzleFlash[0].enableEmission = Left;
-            WhiteMuzzleFlash[1].enableEmission = Right;
+            WhiteMuzzleFlashVR[0].enableEmission = Left;
+            WhiteMuzzleFlashVR[1].enableEmission = Right;
         }
     }
 
