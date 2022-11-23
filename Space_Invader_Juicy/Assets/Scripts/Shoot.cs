@@ -67,9 +67,9 @@ public class Shoot : MonoBehaviour
 
         for (int i = 0; i < GatlingArray.Length; i++)
         {
-            part[i] = GatlingArray[i].transform.GetChild(0).GetComponent<ParticleSystem>();
-            MuzzleFlash[i] = GatlingArray[i].transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
-            WhiteMuzzleFlash[i] = GatlingArray[i].transform.GetChild(1).GetChild(1).GetComponent<ParticleSystem>();
+            partVR[i] = GatlingArrayVR[i].transform.GetChild(0).GetComponent<ParticleSystem>();
+            MuzzleFlashVR[i] = GatlingArrayVR[i].transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
+            WhiteMuzzleFlashVR[i] = GatlingArrayVR[i].transform.GetChild(1).GetChild(1).GetComponent<ParticleSystem>();
         }
         foreach (ParticleSystem particles in partVR)
         {
