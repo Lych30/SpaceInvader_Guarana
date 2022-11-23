@@ -55,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
     {
         t = 0f;
         startPosition = transform.position;
-        (targetPosition, targetIndex, moveDown) = path.GetNextPosition(targetIndex, out lerpToNextTarget);
+        (targetPosition, targetIndex) = path.GetNextPosition(targetIndex);//, out lerpToNextTarget);
 
         if (moveDown)
         {
