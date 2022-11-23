@@ -65,7 +65,7 @@ public class Shoot : MonoBehaviour
             particles.enableEmission = false;
         }
 
-        for (int i = 0; i < GatlingArray.Length; i++)
+        for (int i = 0; i < GatlingArrayVR.Length; i++)
         {
             partVR[i] = GatlingArrayVR[i].transform.GetChild(0).GetComponent<ParticleSystem>();
             MuzzleFlashVR[i] = GatlingArrayVR[i].transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
