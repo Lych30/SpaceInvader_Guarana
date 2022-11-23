@@ -185,17 +185,17 @@ public class Shoot : MonoBehaviour
 
     private void GatlingParticlesVR(bool Left, bool Right)
     {
-        if(part.Length == 2)
+        if(partVR.Length == 2)
         {
             partVR[0].enableEmission = Left;
             partVR[1].enableEmission = Right;
         }
-        if(MuzzleFlash.Length == 2)
+        if(MuzzleFlashVR.Length == 2)
         {
             MuzzleFlashVR[0].enableEmission = Left;
             MuzzleFlashVR[1].enableEmission = Right;
         }
-        if(WhiteMuzzleFlash.Length == 2)
+        if(WhiteMuzzleFlashVR.Length == 2)
         {
             WhiteMuzzleFlashVR[0].enableEmission = Left;
             WhiteMuzzleFlashVR[1].enableEmission = Right;
