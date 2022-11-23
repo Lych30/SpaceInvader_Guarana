@@ -8,13 +8,10 @@ using UnityEngine.Rendering.Universal;
 
 public class Shoot : MonoBehaviour
 {
-    public InputActionAsset test;
-
 
     public Gradient epilepsyWarning;
     Volume volume;
     
-
 
     public GameObject[] GatlingArray;
     ParticleSystem[] part;
@@ -30,10 +27,6 @@ public class Shoot : MonoBehaviour
     public GameObject LazerGO;
     CinemachineImpulseSource LazerShake;
 
-    public InputActionReference rightHandTrigger;
-    public InputActionReference leftHandTrigger;
-    private InputAction rightTriggerAction;
-    private InputAction leftTriggerAction;
 
     //[SerializeField] private Animator anim;
 
@@ -69,7 +62,7 @@ public class Shoot : MonoBehaviour
         }
         
 
-        rightTriggerAction = rightHandTrigger.ToInputAction();
+      
     }
     private void Update()
     {
@@ -80,6 +73,8 @@ public class Shoot : MonoBehaviour
 
         //bool inputFire = rightTriggerAction.IsPressed();
         bool inputFire = false;
+        bool inputFireLeft = VRInputManager.Instance.LeftTrigger.GetButton;
+        bool inputFireRight = VRInputManager.Instance.RightTrigger.GetButton;
 
         if (Input.GetButton("Fire"))
         {
@@ -98,16 +93,20 @@ public class Shoot : MonoBehaviour
 
 
 
-        if (inputFire)
+        if (inputFire || inputFireLeft || inputFireRight)
         {
             if(GameFeelManager.instance.ShakeGF)
                 impulseSource.GenerateImpulse();
 
             if (GameFeelManager.instance.FireGF && !LazerGO.activeInHierarchy)
             {
-                Debug.Log("Gatling");
-                GatlingParticles(true);
-                if(furyBarScript)
+                if(inputFire)
+                    GatlingParticlesMouse(true);
+
+                if (inputFireLeft || inputFireRight)
+                    GatlingParticlesVR(inputFireLeft, inputFireRight);
+
+                if (furyBarScript)
                     furyBarScript.AddFury(1);
                 if (!GatlingSound.isPlaying)
                 {
@@ -121,7 +120,7 @@ public class Shoot : MonoBehaviour
             else
             {
                 Debug.Log("Basic");
-                GatlingParticles(false);
+                GatlingParticlesMouse(false);
                 if (Timer <= 0)
                 {
                     //garbage shoot
@@ -135,7 +134,7 @@ public class Shoot : MonoBehaviour
         }
         else
         {
-            GatlingParticles(false);
+            GatlingParticlesMouse(false);
             if (GatlingSound.isPlaying)
             {
                 GatlingSound.Stop();
@@ -144,7 +143,7 @@ public class Shoot : MonoBehaviour
         
     }
 
-    private void GatlingParticles(bool on)
+    private void GatlingParticlesMouse(bool on)
     {
         foreach (ParticleSystem particles in part)
         {
@@ -160,7 +159,26 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    
+    private void GatlingParticlesVR(bool Left, bool Right)
+    {
+        if(part.Length == 2)
+        {
+            part[0].enableEmission = Left;
+            part[1].enableEmission = Right;
+        }
+        if(MuzzleFlash.Length == 2)
+        {
+            MuzzleFlash[0].enableEmission = Left;
+            MuzzleFlash[1].enableEmission = Right;
+        }
+        if(WhiteMuzzleFlash.Length == 2)
+        {
+            WhiteMuzzleFlash[0].enableEmission = Left;
+            WhiteMuzzleFlash[1].enableEmission = Right;
+        }
+    }
+
+
 
     IEnumerator BigLazerGoBRRR()
     {
