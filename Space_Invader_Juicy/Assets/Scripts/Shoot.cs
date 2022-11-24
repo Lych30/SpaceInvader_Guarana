@@ -5,6 +5,7 @@ using Cinemachine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Shoot : MonoBehaviour
 {
@@ -30,7 +31,9 @@ public class Shoot : MonoBehaviour
     public FuryBarScript furyBarScript;
     public GameObject LazerGO;
     CinemachineImpulseSource LazerShake;
-
+    
+    [SerializeField] public ActionBasedController xrLeft;
+    [SerializeField] public ActionBasedController xrRight;
 
     //[SerializeField] private Animator anim;
 
@@ -127,7 +130,7 @@ public class Shoot : MonoBehaviour
 
             if (GameFeelManager.instance.FireGF && !LazerGO.activeInHierarchy)
             {
-                UnityEngine.InputSystem.XR.Haptics.SendHapticImpulseCommand.Create(0, 5, 1);
+                //UnityEngine.InputSystem.XR.Haptics.SendHapticImpulseCommand.Create(0, 5, 1);
                 if ((inputFireLeft || inputFireRight) && GatlingArrayVR.Length == 2)
                 {
                     GatlingParticlesVR(inputFireLeft, inputFireRight);
@@ -212,9 +215,23 @@ public class Shoot : MonoBehaviour
             WhiteMuzzleFlashVR[0].enableEmission = Left;
             WhiteMuzzleFlashVR[1].enableEmission = Right;
         }
+
+        if (Left)
+            ActivateHapticLeft();
+
+        if (Right)
+            ActivateHapticRight();
     }
 
+    void ActivateHapticLeft()
+    {
+        xrLeft.SendHapticImpulse(0.7f, 2f);
+    }
 
+    void ActivateHapticRight()
+    {
+        xrRight.SendHapticImpulse(0.7f, 2f);
+    }
 
     IEnumerator BigLazerGoBRRR()
     {
