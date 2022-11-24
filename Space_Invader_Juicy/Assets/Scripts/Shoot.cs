@@ -32,8 +32,10 @@ public class Shoot : MonoBehaviour
     public GameObject LazerGO;
     CinemachineImpulseSource LazerShake;
     
-    [SerializeField] public ActionBasedController xrLeft;
-    [SerializeField] public ActionBasedController xrRight;
+    [SerializeField] ActionBasedController xrLeft;
+    [SerializeField] ActionBasedController xrRight;
+    [SerializeField] float impulseMagnitude = 0.7f;
+    [SerializeField] float impulseDuration = 0.1f;
 
     //[SerializeField] private Animator anim;
 
@@ -225,12 +227,12 @@ public class Shoot : MonoBehaviour
 
     void ActivateHapticLeft()
     {
-        xrLeft.SendHapticImpulse(0.7f, 2f);
+        xrLeft.SendHapticImpulse(impulseMagnitude, impulseDuration);
     }
 
     void ActivateHapticRight()
     {
-        xrRight.SendHapticImpulse(0.7f, 2f);
+        xrRight.SendHapticImpulse(impulseMagnitude, impulseDuration);
     }
 
     IEnumerator BigLazerGoBRRR()
