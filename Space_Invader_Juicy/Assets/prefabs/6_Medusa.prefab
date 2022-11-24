@@ -5183,6 +5183,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0274350237939ce4b9f901d6a4163f32,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0274350237939ce4b9f901d6a4163f32,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0274350237939ce4b9f901d6a4163f32,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5421,6 +5431,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 818044815521660737, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: ScoreValue
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 818044815521660737, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: healthPoints
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3631328487205731798, guid: 41d201dcf230f0f4db4c83c50db64e9d,
         type: 3}
       propertyPath: idle

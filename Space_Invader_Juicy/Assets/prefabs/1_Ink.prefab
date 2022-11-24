@@ -5401,6 +5401,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 818044815521660737, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: ScoreValue
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 818044815521660737, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: healthPoints
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3631328487205731798, guid: 41d201dcf230f0f4db4c83c50db64e9d,
         type: 3}
       propertyPath: idle
