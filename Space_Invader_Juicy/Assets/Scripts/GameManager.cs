@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private float timeBeforeNextShoot = 3;
 
     [SerializeField] MenuManager refMenuManager;
+    [SerializeField] Camera cameraNonVR;
 
     private void Awake()
     {
@@ -26,7 +27,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Effect Toggle Inputs
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!cameraNonVR)
+                cameraNonVR = GameObject.Find("Main Camera").GetComponent<Camera>();
+            
+            if (cameraNonVR.enabled)
+                cameraNonVR.enabled = false;
+            else
+                cameraNonVR.enabled = true;
+            
+        }
 
         //Random for enemy shoot
         if (timeBeforeNextShoot > 0)

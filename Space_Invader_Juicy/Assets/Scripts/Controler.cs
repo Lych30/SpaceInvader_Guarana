@@ -75,7 +75,8 @@ public class Controler : MonoBehaviour
         if (life <= 0)
         {
             GameManager.Instance?.Defeat();
-            Destroy(gameObject);
+            this.enabled = false;
+            //Destroy(gameObject);
         }
 
         StopCoroutine(HitEffect());
