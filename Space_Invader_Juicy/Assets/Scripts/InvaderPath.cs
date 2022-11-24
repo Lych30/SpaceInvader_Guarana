@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +7,16 @@ public class InvaderPath : MonoBehaviour
 {
     [Serializable] public struct EnemyLane
     {
-        public int index;
+        [Min(0)] public int index;
         public GameObject enemyPrefab;
         public int enemyCount;
+
+        [Header("   Spawn Position")]
         public float offset;
         public float initialOffset;
+
+        [Header("   Delay")]
+        [Min(0)] public int spawnAfterLane;
 
         [HideInInspector] public Mesh mesh;
         [HideInInspector] public Quaternion rotation;
@@ -25,7 +31,6 @@ public class InvaderPath : MonoBehaviour
     [SerializeField] private List<EnemyLane> enemyLanes;
 
     private List<Vector3> positions = new List<Vector3>();
-
 
     private void Awake()
     {
@@ -60,15 +65,36 @@ public class InvaderPath : MonoBehaviour
 
     private void SpawnInvaders()
     {
-        Vector3 pos = transform.position;
-        enemyParentTransform.position = pos;
+        enemyParentTransform.position = transform.position;
+        for (int i = 0; i < enemyLanes.Count; ++i)
+        {
+            if (enemyLanes[i].spawnAfterLane == 0)
+                SpawnLane(i);
+            else
+                StartCoroutine(DelaySpawn(i));
+        }
+    }
+
+    private void SpawnLane(int index)
+    {
+        Vector3 pos = new Vector3(
+            enemyParentTransform.position.x + enemyLanes[index].initialOffset,
+            enemyParentTransform.position.y - laneSize.y * index,
+            enemyParentTransform.position.z);
         int n;
 
-        for (int i = 0; i < enemyLanes.Count; ++i, pos.x = transform.position.x, pos.y -= laneSize.y)
-        {
-            for (n = 0, pos.x += enemyLanes[i].initialOffset; n < enemyLanes[i].enemyCount; ++n, pos.x += enemyLanes[i].offset)
-                Instantiate(enemyLanes[i].enemyPrefab, pos, Quaternion.identity, enemyParentTransform);
-        }
+        for (n = 0; n < enemyLanes[index].enemyCount; ++n, pos.x += enemyLanes[index].offset)
+            Instantiate(enemyLanes[index].enemyPrefab, pos, Quaternion.identity, enemyParentTransform);
+    }
+
+    private IEnumerator DelaySpawn(int index)
+    {
+        var lane = enemyLanes[index];
+        float limitY = enemyParentTransform.position.y - lane.spawnAfterLane * laneSize.y;
+
+        yield return new WaitUntil(() => enemyParentTransform.position.y <= limitY);
+
+        SpawnLane(index);
     }
 
     private void OnDrawGizmos()

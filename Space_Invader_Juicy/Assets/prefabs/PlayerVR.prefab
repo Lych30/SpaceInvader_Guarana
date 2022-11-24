@@ -78213,6 +78213,7 @@ MonoBehaviour:
   GatlingSound: {fileID: 2614626691112816135}
   furyBarScript: {fileID: 0}
   LazerGO: {fileID: 851794226437102589}
+  DecreaseSpeedFactor: 0
   xrLeft: {fileID: 6676083488684644135}
   xrRight: {fileID: 6676083487814254725}
   impulseMagnitude: 0.7
@@ -168014,7 +168015,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.00060808496, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.017471192, y: -0.018916875, z: 0.029757805}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -168072,7 +168073,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.00060808496, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 0.0006082058, z: -0.0033296607}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -168167,7 +168168,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.00067500037, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.000000007450581, y: 0.0006750226, z: -0.0033305995}
   m_UseSpring: 0
   m_Spring:
     spring: 0
