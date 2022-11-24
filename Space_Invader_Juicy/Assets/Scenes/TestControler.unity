@@ -32604,6 +32604,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
         type: 3}
+      propertyPath: DecreaseSpeedFactor
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204182301910394297, guid: 662341db8454c0642a5c315c4445fade,
+        type: 3}
       propertyPath: epilepsyWarning.ctime1
       value: 10023
       objectReference: {fileID: 0}

@@ -31,7 +31,11 @@ public class Shoot : MonoBehaviour
     public FuryBarScript furyBarScript;
     public GameObject LazerGO;
     CinemachineImpulseSource LazerShake;
-    
+
+    [Range(1.0f, 4.0f)]
+    public float DecreaseSpeedFactor;
+    Controler ctrl;
+
     [SerializeField] ActionBasedController xrLeft;
     [SerializeField] ActionBasedController xrRight;
     [SerializeField] float impulseMagnitude = 0.7f;
@@ -95,7 +99,7 @@ public class Shoot : MonoBehaviour
         }
 
 
-
+        ctrl = transform.parent.GetComponent<Controler>();
     }
     private void Update()
     {
@@ -238,7 +242,7 @@ public class Shoot : MonoBehaviour
     IEnumerator BigLazerGoBRRR()
     {
         LazerGO.SetActive(true);
-
+        ctrl.speed /= DecreaseSpeedFactor;
         Bloom bloom;
         while (furyBarScript.FurySlider.value > 0)
         {
@@ -267,7 +271,7 @@ public class Shoot : MonoBehaviour
             bloom.tint.overrideState = true;
             bloom.tint.value = Color.red;
         }
-        
+        ctrl.speed /= DecreaseSpeedFactor;
         LazerGO.SetActive(false);
     }
 }
