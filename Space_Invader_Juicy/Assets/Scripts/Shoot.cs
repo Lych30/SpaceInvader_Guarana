@@ -120,7 +120,7 @@ public class Shoot : MonoBehaviour
 
         if (GameFeelManager.instance.LazerGF)
         {
-            if(Input.GetKeyDown(KeyCode.L) && VRfuryBarScript.FurySlider.value >= VRfuryBarScript.FurySlider.maxValue)
+            if((Input.GetKeyDown(KeyCode.L) || (VRInputManager.Instance.LeftStick.Direction.y < -0.8f && VRInputManager.Instance.RightStick.Direction.y < -0.8f)) && VRfuryBarScript.FurySlider.value >= VRfuryBarScript.FurySlider.maxValue)
             {
                 //AHAH big lazer go BRRRRRRR
                 AudioSource[] everyAudioSource = FindObjectsOfType<AudioSource>();
