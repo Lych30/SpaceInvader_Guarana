@@ -34,9 +34,11 @@ public class FuryBarScript : MonoBehaviour
         if (FurySlider.value/ FurySlider.maxValue >= 0.8f)
         {
             FuryAnimator.Play("ReadyBar");
+            FuryAnimator.speed = (FurySlider.value / FurySlider.maxValue);
         }
         else
         {
+            FuryAnimator.speed = 1;
             FuryAnimator.Play("IdleBar");
         }
     }
