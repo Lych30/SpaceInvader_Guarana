@@ -9,6 +9,9 @@ public class PauseManager : MonoBehaviour
     public bool canPause;
     bool isPause;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject pauseMenuVR;
+
+    [SerializeField] List<GameObject> vrLaser;
 
     public Vector3 tweenPunchScale = new Vector3(0.2f, 0.2f, 0.2f);
     public float duration = 0.35f;
@@ -23,7 +26,7 @@ public class PauseManager : MonoBehaviour
 
     public void UI_Pause()
     {
-        if (canPause)
+        if (!canPause)
         {
             return;
         }
@@ -33,12 +36,24 @@ public class PauseManager : MonoBehaviour
         if (isPause)
         {
             pauseMenu.SetActive(true);
+            pauseMenuVR?.SetActive(true);
             Time.timeScale = 0;
+
+            foreach (var item in vrLaser)
+            {
+                item.SetActive(true);
+            }
         }
         else
         {
             pauseMenu.SetActive(false);
+            pauseMenuVR?.SetActive(false);
             Time.timeScale = 1;
+
+            foreach (var item in vrLaser)
+            {
+                item.SetActive(false);
+            }
         }
     }
 
@@ -56,12 +71,24 @@ public class PauseManager : MonoBehaviour
             if (isPause)
             {
                 pauseMenu.SetActive(true);
+                pauseMenuVR?.SetActive(true);
                 Time.timeScale = 0;
+
+                foreach (var item in vrLaser)
+                {
+                    item.SetActive(true);
+                }
             }
             else
             {
                 pauseMenu.SetActive(false);
+                pauseMenuVR?.SetActive(false);
                 Time.timeScale = 1;
+
+                foreach (var item in vrLaser)
+                {
+                    item.SetActive(false);
+                }
             }
         });
 

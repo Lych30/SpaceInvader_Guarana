@@ -9,10 +9,15 @@ public class MenuManager : MonoBehaviour
 {
     public Vector3 tweenPunchScale = new Vector3(0.2f, 0.2f, 0.2f);
     public float duration = 0.35f;
+    public bool gameEnded;
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject victoryScreen;
     [SerializeField] GameObject losingScreen;
+
+    [SerializeField] GameObject pauseMenuVR;
+    [SerializeField] GameObject victoryScreenVR;
+    [SerializeField] GameObject losingScreenVR;
 
     [SerializeField] PauseManager refPauseManager;
 
@@ -21,20 +26,40 @@ public class MenuManager : MonoBehaviour
         pauseMenu.SetActive(false);
         victoryScreen.SetActive(false);
         losingScreen.SetActive(false);
+
+        pauseMenuVR?.SetActive(false);
+        victoryScreenVR?.SetActive(false);
+        losingScreenVR?.SetActive(false);
     }
 
     public void ActivateVictoryScreen()
     {
+        if (gameEnded)
+            return;
+
         pauseMenu.SetActive(false);
         victoryScreen.SetActive(true);
+        losingScreen.SetActive(false);
         refPauseManager.canPause = false;
+
+        pauseMenuVR?.SetActive(false);
+        victoryScreenVR?.SetActive(true);
+        losingScreenVR?.SetActive(false);
     }
 
     public void ActivateLosingScreen()
     {
+        if (gameEnded)
+            return;
+
         pauseMenu.SetActive(false);
+        victoryScreen.SetActive(false);
         losingScreen.SetActive(true);
         refPauseManager.canPause = false;
+
+        pauseMenuVR?.SetActive(false);
+        victoryScreenVR?.SetActive(false);
+        losingScreenVR?.SetActive(true);
     }
 
     public void UI_MainMenu(GameObject buttonToPunch)
