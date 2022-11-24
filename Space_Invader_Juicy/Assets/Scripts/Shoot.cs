@@ -26,6 +26,7 @@ public class Shoot : MonoBehaviour
     public AudioSource ShootSound_SpaceInvaders;
     public AudioSource GatlingSound;
     public AudioSource LazerSound;
+    public AudioSource BGSound;
     private float TimerBtwShots = 1.0f;
     private float Timer;
     public FuryBarScript VRfuryBarScript;
@@ -50,7 +51,7 @@ public class Shoot : MonoBehaviour
         Timer = TimerBtwShots;
         impulseSource = GetComponent<CinemachineImpulseSource>();
         LazerShake = LazerGO.GetComponent<CinemachineImpulseSource>();
-
+        BGSound.Play();
         //Arrays Init
         part = new ParticleSystem[GatlingArray.Length];
         MuzzleFlash = new ParticleSystem[GatlingArray.Length];
@@ -126,7 +127,7 @@ public class Shoot : MonoBehaviour
                 AudioSource[] everyAudioSource = FindObjectsOfType<AudioSource>();
                 foreach(var audio in everyAudioSource)
                 {
-                    audio.Stop();
+                    audio.Pause();
                 }
 
                 if(Time.timeScale != 0)
@@ -279,6 +280,7 @@ public class Shoot : MonoBehaviour
             bloom.tint.overrideState = true;
             bloom.tint.value = Color.red;
         }
+        BGSound.Play();
         ctrl.speed *= DecreaseSpeedFactor;
         LazerGO.SetActive(false);
     }
