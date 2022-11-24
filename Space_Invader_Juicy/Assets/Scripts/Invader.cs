@@ -14,6 +14,8 @@ public class Invader : MonoBehaviour
     [Space, Space, Header("Visual settings")]
     [SerializeField] Mesh mesh;
     public AudioSource explosionSFX;
+    public Gradient lifeColorGradient;
+    public Gradient positionAlphaGradient;
 
     [Space]
     public ParticleSystem[] Explode;
@@ -61,7 +63,6 @@ public class Invader : MonoBehaviour
 
     void Update()
     {
-
     }
 
     public void Shoot()
@@ -134,7 +135,8 @@ public class Invader : MonoBehaviour
 
         for (int i = 0; i < mat.Count; i++)
         {
-            mat[i].SetColor("_EmissionColor", new Color(initialColor[i].r, initialColor[i].g, initialColor[i].b, 2));
+            //mat[i].SetColor("_EmissionColor", new Color(initialColor[i].r, initialColor[i].g, initialColor[i].b, 2));
+            mat[i].SetColor("_EmissionColor", lifeColorGradient.Evaluate(1 - life/healthPoints));
         }
 
         //mat.SetColor("_EmissionColor", new Color(initialColor.r,initialColor.g,initialColor.b,2));

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.007232693, g: 0.0268832, b: 0.120737456, a: 1}
+  m_IndirectSpecularColor: {r: 0.0072060283, g: 0.026740575, b: 0.12070197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d823ef9258f960342a11be2bf714d0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
   lerpSpeed:
     serializedVersion: 2
     m_Curve:
@@ -1431,15 +1431,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneNumber: 21
-  laneSize: {x: 16, y: 2}
+  laneSize: {x: 16, y: 4}
   enemyParentTransform: {fileID: 1056097611}
   enemyLanes:
   - index: 0
     enemyPrefab: {fileID: 4243962647214835173, guid: e09d436c687caf04c96b84da30053ce6,
       type: 3}
     enemyCount: 3
-    offset: 2
-    initialOffset: 3
+    offset: 7
+    initialOffset: 1
     spawnAfterLane: 8
     mesh: {fileID: 7415905481713506192, guid: 3f3d630f823d4934bb2ef17153cb7bf7, type: 3}
     rotation: {x: -0.50000006, y: 0.50000006, z: 0.50000006, w: 0.50000006}
@@ -1483,7 +1483,7 @@ MonoBehaviour:
     enemyPrefab: {fileID: 4243962647214835173, guid: e09d436c687caf04c96b84da30053ce6,
       type: 3}
     enemyCount: 3
-    offset: 2
+    offset: 7
     initialOffset: 1
     spawnAfterLane: 3
     mesh: {fileID: 7415905481713506192, guid: 3f3d630f823d4934bb2ef17153cb7bf7, type: 3}
@@ -1493,8 +1493,8 @@ MonoBehaviour:
       type: 3}
     enemyCount: 6
     offset: 2
-    initialOffset: 0
-    spawnAfterLane: 0
+    initialOffset: 1
+    spawnAfterLane: 2
     mesh: {fileID: -2307891960180625403, guid: d9dfd23cc1b1bfa479b68e13752443a9, type: 3}
     rotation: {x: 0.00000026631616, y: 1.0000001, z: -0, w: 0}
   - index: 7
@@ -1503,7 +1503,7 @@ MonoBehaviour:
     enemyCount: 6
     offset: 2
     initialOffset: 2
-    spawnAfterLane: 0
+    spawnAfterLane: 1
     mesh: {fileID: -2307891960180625403, guid: d9dfd23cc1b1bfa479b68e13752443a9, type: 3}
     rotation: {x: 0.00000026631616, y: 1.0000001, z: -0, w: 0}
   - index: 8
@@ -1523,7 +1523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216799332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: 37, z: 0}
+  m_LocalPosition: {x: -15, y: 77.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2253,6 +2253,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2806851568376733, guid: ad5abcc34adbea3439f67a2226b7ee10, type: 3}
+      propertyPath: Dmg
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2086532164784118997, guid: ad5abcc34adbea3439f67a2226b7ee10,
         type: 3}
       propertyPath: m_Interpolate
@@ -2268,6 +2272,16 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2405048506144046778, guid: ad5abcc34adbea3439f67a2226b7ee10,
+        type: 3}
+      propertyPath: Dmg
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676083489230363332, guid: ad5abcc34adbea3439f67a2226b7ee10,
+        type: 3}
+      propertyPath: mat_Glow
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bb5be775b86a2442bd31be22a0c59b4, type: 2}
     - target: {fileID: 6676083489230363333, guid: ad5abcc34adbea3439f67a2226b7ee10,
         type: 3}
       propertyPath: m_Name
