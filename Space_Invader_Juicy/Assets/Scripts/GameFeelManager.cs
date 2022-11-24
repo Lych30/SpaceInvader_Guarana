@@ -20,6 +20,7 @@ public class GameFeelManager : MonoBehaviour
     public Volume Volume;
     public GameObject BGParticles;
     public GameObject FuryBarScriptGO;
+    public GameObject FuryBarScriptGO2;
 
     private void Awake()
     {
@@ -82,6 +83,7 @@ public class GameFeelManager : MonoBehaviour
                 case KeyCode.Alpha8:
                     LazerGF = !LazerGF;
                     FuryBarScriptGO.SetActive(LazerGF);
+                    FuryBarScriptGO2.SetActive(LazerGF);
                     break;
 
 
@@ -108,6 +110,8 @@ public class GameFeelManager : MonoBehaviour
                     LazerGF = true;
 
                     FuryBarScriptGO.SetActive(true);
+
+                    FuryBarScriptGO2.SetActive(true);
 
                     break;
 

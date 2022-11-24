@@ -27,7 +27,8 @@ public class Shoot : MonoBehaviour
     public AudioSource GatlingSound;
     private float TimerBtwShots = 1.0f;
     private float Timer;
-    public FuryBarScript furyBarScript;
+    public FuryBarScript VRfuryBarScript;
+    public FuryBarScript MainfuryBarScript;
     public GameObject LazerGO;
     CinemachineImpulseSource LazerShake;
 
@@ -45,7 +46,6 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         volume = FindObjectOfType<Volume>();
-
         Timer = TimerBtwShots;
         impulseSource = GetComponent<CinemachineImpulseSource>();
         LazerShake = LazerGO.GetComponent<CinemachineImpulseSource>();
@@ -117,9 +117,9 @@ public class Shoot : MonoBehaviour
             inputFire = true;
         }
 
-        if (furyBarScript && GameFeelManager.instance.LazerGF)
+        if (GameFeelManager.instance.LazerGF)
         {
-            if(Input.GetKeyDown(KeyCode.L) && furyBarScript.FurySlider.value >= furyBarScript.FurySlider.maxValue)
+            if(Input.GetKeyDown(KeyCode.L) && VRfuryBarScript.FurySlider.value >= VRfuryBarScript.FurySlider.maxValue)
             {
                 //AHAH big lazer go BRRRRRRR
                 StartCoroutine(BigLazerGoBRRR());
@@ -147,7 +147,11 @@ public class Shoot : MonoBehaviour
                 }
 
                 if (GameFeelManager.instance.LazerGF)
-                    furyBarScript.AddFury(1);
+                {
+                    VRfuryBarScript.AddFury(1);
+                    MainfuryBarScript.AddFury(1);
+                }
+
 
                 if (!GatlingSound.isPlaying)
                 {
@@ -240,21 +244,19 @@ public class Shoot : MonoBehaviour
         LazerGO.SetActive(true);
         ctrl.speed /= DecreaseSpeedFactor;
         Bloom bloom;
-        while (furyBarScript.FurySlider.value > 0)
+        while (VRfuryBarScript.FurySlider.value > 0)
         {
             LazerShake.GenerateImpulse();
-            furyBarScript.AddFury(-10);
-            
+            VRfuryBarScript.AddFury(-10);
+            MainfuryBarScript.AddFury(-10);
             if (volume.profile.TryGet<Bloom>(out bloom))
             {
                 bloom.tint.overrideState = true;
                 //La version soft
-                bloom.tint.value = epilepsyWarning.Evaluate(furyBarScript.FurySlider.value / furyBarScript.FurySlider.maxValue);
+                bloom.tint.value = epilepsyWarning.Evaluate(VRfuryBarScript.FurySlider.value / VRfuryBarScript.FurySlider.maxValue);
                 // La version de l'épilepsie
                 //bloom.tint.value = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255),255);
           
-                
-                Debug.Log(furyBarScript.FurySlider.value / furyBarScript.FurySlider.maxValue);
                 
             }
             
