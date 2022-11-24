@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         {
             timeBeforeNextShoot -= Time.deltaTime;
         }
-        else
+        else if (enemyList.Count > 0)
         {
             if (enemyList.Count < 5)
                 timeBeforeNextShoot = Random.Range(0f, 3f);

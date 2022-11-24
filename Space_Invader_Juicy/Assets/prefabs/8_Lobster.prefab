@@ -5401,6 +5401,26 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 160
       objectReference: {fileID: 0}
+    - target: {fileID: 818044815521660737, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: mat.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 818044815521660737, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: Explode.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 818044815521660737, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: Explode.Array.data[0]
+      value: 
+      objectReference: {fileID: 8001270247444245413}
+    - target: {fileID: 818044815521660737, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+        type: 3}
+      propertyPath: Explode.Array.data[1]
+      value: 
+      objectReference: {fileID: 4742150043822276567}
     - target: {fileID: 3631328487205731798, guid: 41d201dcf230f0f4db4c83c50db64e9d,
         type: 3}
       propertyPath: idle
@@ -5479,6 +5499,12 @@ PrefabInstance:
 --- !u!4 &4243962647214835170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5369465304942286646, guid: 41d201dcf230f0f4db4c83c50db64e9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8097957795478557396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8001270247444245413 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2264045418537695601, guid: 41d201dcf230f0f4db4c83c50db64e9d,
     type: 3}
   m_PrefabInstance: {fileID: 8097957795478557396}
   m_PrefabAsset: {fileID: 0}
