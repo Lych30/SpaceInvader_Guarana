@@ -25,6 +25,7 @@ public class Shoot : MonoBehaviour
     public GameObject StandarBullet;
     public AudioSource ShootSound_SpaceInvaders;
     public AudioSource GatlingSound;
+    public AudioSource LazerSound;
     private float TimerBtwShots = 1.0f;
     private float Timer;
     public FuryBarScript VRfuryBarScript;
@@ -122,6 +123,12 @@ public class Shoot : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.L) && VRfuryBarScript.FurySlider.value >= VRfuryBarScript.FurySlider.maxValue)
             {
                 //AHAH big lazer go BRRRRRRR
+                AudioSource[] everyAudioSource = FindObjectsOfType<AudioSource>();
+                foreach(var audio in everyAudioSource)
+                {
+                    audio.Stop();
+                }
+                LazerSound.Play();
                 StartCoroutine(BigLazerGoBRRR());
             }
         }
