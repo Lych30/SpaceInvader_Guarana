@@ -127,11 +127,18 @@ public class Shoot : MonoBehaviour
 
             if (GameFeelManager.instance.FireGF && !LazerGO.activeInHierarchy)
             {
-                if(inputFire && GatlingArray.Length > 0)
-                    GatlingParticlesMouse(true);
-
+                UnityEngine.InputSystem.XR.Haptics.SendHapticImpulseCommand.Create(0, 5, 1);
                 if ((inputFireLeft || inputFireRight) && GatlingArrayVR.Length == 2)
+                {
                     GatlingParticlesVR(inputFireLeft, inputFireRight);
+                }    
+                else if(inputFire && GatlingArray.Length > 0)
+                {
+                    GatlingParticlesMouse(true);
+                }
+
+
+                
 
                 if (GameFeelManager.instance.LazerGF)
                     furyBarScript.AddFury(1);

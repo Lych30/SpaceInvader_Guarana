@@ -26708,8 +26708,10 @@ MonoBehaviour:
   EnnemyAnimGF: 0
   PopScoreGF: 0
   BackgroundParticlesGF: 0
+  LazerGF: 0
   Volume: {fileID: 1895565191}
   BGParticles: {fileID: 516562320}
+  FuryBarScriptGO: {fileID: 2118771822}
 --- !u!1001 &1400711132
 PrefabInstance:
   m_ObjectHideFlags: 0
