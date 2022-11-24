@@ -2299,7 +2299,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949795244}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.045029122, g: 0, b: 0.14150941, a: 0}
@@ -4119,6 +4119,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1311393395}
+    - target: {fileID: 2640720164517849127, guid: ad5abcc34adbea3439f67a2226b7ee10,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064593048326624251, guid: ad5abcc34adbea3439f67a2226b7ee10,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064593048326624251, guid: ad5abcc34adbea3439f67a2226b7ee10,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064593048326624251, guid: ad5abcc34adbea3439f67a2226b7ee10,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     - target: {fileID: 5184222790125957534, guid: ad5abcc34adbea3439f67a2226b7ee10,
         type: 3}
       propertyPath: m_Camera
