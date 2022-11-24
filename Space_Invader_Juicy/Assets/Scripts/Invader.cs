@@ -16,6 +16,7 @@ public class Invader : MonoBehaviour
     public AudioSource explosionSFX;
     public Gradient lifeColorGradient;
     public Gradient positionAlphaGradient;
+    public bool useMeshRenderer;
 
     [Space]
     public ParticleSystem[] Explode;
@@ -33,8 +34,17 @@ public class Invader : MonoBehaviour
 
         explosionSFX = GetComponent<AudioSource>();
         
-        rd = GetComponentsInChildren<SkinnedMeshRenderer>();
-        mesh = rd[0].GetComponent<SkinnedMeshRenderer>().sharedMesh;
+        if (!useMeshRenderer)
+        {
+            rd = GetComponentsInChildren<SkinnedMeshRenderer>();
+            mesh = rd[0].GetComponent<SkinnedMeshRenderer>().sharedMesh;
+        }
+        else
+        {
+            rd = GetComponentsInChildren<MeshRenderer>();
+            mesh = rd[0].GetComponent<MeshFilter>().mesh;
+        }
+        
 
         /*rd = GetComponentsInChildren<Renderer>();
 

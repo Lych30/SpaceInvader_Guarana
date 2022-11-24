@@ -95,5 +95,19 @@ public class PauseManager : MonoBehaviour
         
     }
 
+    public void ShowPlayerRays()
+    {
+        foreach (var item in vrLaser)
+        {
+            item.SetActive(true);
+        }
+    }
 
+    public void HidePlayerRays()
+    {
+        foreach (var item in vrLaser)
+        {
+            item.SetActive(false);
+        }
+    }
 }

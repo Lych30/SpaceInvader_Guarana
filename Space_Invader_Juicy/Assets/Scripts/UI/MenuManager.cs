@@ -30,6 +30,8 @@ public class MenuManager : MonoBehaviour
         pauseMenuVR?.SetActive(false);
         victoryScreenVR?.SetActive(false);
         losingScreenVR?.SetActive(false);
+
+        refPauseManager.HidePlayerRays();
     }
 
     public void ActivateVictoryScreen()
@@ -45,6 +47,8 @@ public class MenuManager : MonoBehaviour
         pauseMenuVR?.SetActive(false);
         victoryScreenVR?.SetActive(true);
         losingScreenVR?.SetActive(false);
+
+        refPauseManager.ShowPlayerRays();
     }
 
     public void ActivateLosingScreen()
@@ -60,6 +64,8 @@ public class MenuManager : MonoBehaviour
         pauseMenuVR?.SetActive(false);
         victoryScreenVR?.SetActive(false);
         losingScreenVR?.SetActive(true);
+
+        refPauseManager.ShowPlayerRays();
     }
 
     public void UI_MainMenu(GameObject buttonToPunch)
@@ -86,7 +92,6 @@ public class MenuManager : MonoBehaviour
             buttonToPunch.GetComponent<Button>().enabled = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         });
-
     }
 
     public void UI_StartGame(GameObject buttonToPunch)
