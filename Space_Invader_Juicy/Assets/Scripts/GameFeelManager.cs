@@ -16,6 +16,7 @@ public class GameFeelManager : MonoBehaviour
     public bool PopScoreGF;
     public bool BackgroundParticlesGF;
     public bool LazerGF;
+    public bool ImpulseGF;
 
     public Volume Volume;
     public GameObject BGParticles;
@@ -86,6 +87,9 @@ public class GameFeelManager : MonoBehaviour
                     FuryBarScriptGO2.SetActive(LazerGF);
                     break;
 
+                case KeyCode.Alpha9:
+                    ImpulseGF = !ImpulseGF;
+                    break;
 
                 case KeyCode.Slash:
                     //ACTIVATE ALL EFFECTS
@@ -113,6 +117,8 @@ public class GameFeelManager : MonoBehaviour
 
                     FuryBarScriptGO2.SetActive(true);
 
+                    ImpulseGF = true;
+
                     break;
 
                     case KeyCode.Exclaim:
@@ -139,6 +145,10 @@ public class GameFeelManager : MonoBehaviour
                     LazerGF = false;
 
                     FuryBarScriptGO.SetActive(false);
+
+                    FuryBarScriptGO2.SetActive(false);
+
+                    ImpulseGF = false;
                     break;
                 default:
                     Debug.Log("none");

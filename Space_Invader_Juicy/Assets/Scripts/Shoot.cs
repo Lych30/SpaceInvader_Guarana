@@ -232,10 +232,10 @@ public class Shoot : MonoBehaviour
             WhiteMuzzleFlashVR[1].enableEmission = Right;
         }
 
-        if (Left)
+        if (Left && GameFeelManager.instance.ImpulseGF)
             ActivateHapticLeft();
 
-        if (Right)
+        if (Right && GameFeelManager.instance.ImpulseGF)
             ActivateHapticRight();
     }
 
