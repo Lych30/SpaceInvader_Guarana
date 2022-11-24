@@ -78218,6 +78218,7 @@ MonoBehaviour:
   xrRight: {fileID: 6676083487814254725}
   impulseMagnitude: 0.7
   impulseDuration: 0.1
+  anim: {fileID: 6676083489333758098}
 --- !u!82 &4314007338013115958
 AudioSource:
   m_ObjectHideFlags: 0

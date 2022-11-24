@@ -13,7 +13,6 @@ public class Shoot : MonoBehaviour
     public Gradient epilepsyWarning;
     Volume volume;
     
-
     public GameObject[] GatlingArray;
     ParticleSystem[] part;
     ParticleSystem[] MuzzleFlash;
@@ -41,7 +40,7 @@ public class Shoot : MonoBehaviour
     [SerializeField] float impulseMagnitude = 0.7f;
     [SerializeField] float impulseDuration = 0.1f;
 
-    //[SerializeField] private Animator anim;
+    [SerializeField] private Animator anim;
 
     void Start()
     {
@@ -117,7 +116,7 @@ public class Shoot : MonoBehaviour
         {
             inputFire = true;
         }
-        //anim.SetBool("Firing", inputFire && GameFeelManager.instance.FireGF);
+
         if (furyBarScript && GameFeelManager.instance.LazerGF)
         {
             if(Input.GetKeyDown(KeyCode.L) && furyBarScript.FurySlider.value >= furyBarScript.FurySlider.maxValue)
@@ -127,7 +126,8 @@ public class Shoot : MonoBehaviour
             }
         }
 
-
+        anim.SetBool("FiringLeft", (inputFire || inputFireLeft) && GameFeelManager.instance.FireGF);
+        anim.SetBool("FiringRight", (inputFire || inputFireRight) && GameFeelManager.instance.FireGF);
 
         if (inputFire || inputFireLeft || inputFireRight)
         {
@@ -146,9 +146,6 @@ public class Shoot : MonoBehaviour
                     GatlingParticlesMouse(true);
                 }
 
-
-                
-
                 if (GameFeelManager.instance.LazerGF)
                     furyBarScript.AddFury(1);
 
@@ -163,7 +160,6 @@ public class Shoot : MonoBehaviour
             }
             else
             {
-                Debug.Log("Basic");
                 GatlingParticlesMouse(false);
                 if (Timer <= 0)
                 {
