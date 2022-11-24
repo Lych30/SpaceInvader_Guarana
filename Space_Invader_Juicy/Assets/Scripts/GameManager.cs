@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
         {
             if (enemyList.Count < 5)
                 timeBeforeNextShoot = Random.Range(0f, 3f);
+            else if (enemyList.Count > 8f)
+                timeBeforeNextShoot = Random.Range(0f, 8f);
             else
                 timeBeforeNextShoot = Random.Range(0f, enemyList.Count);
 
