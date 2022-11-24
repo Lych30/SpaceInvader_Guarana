@@ -44,7 +44,7 @@ public class Shoot : MonoBehaviour
 
     void Start()
     {
-        volume = Camera.main.GetComponent<Volume>();
+        volume = FindObjectOfType<Volume>();
 
         Timer = TimerBtwShots;
         impulseSource = GetComponent<CinemachineImpulseSource>();
@@ -98,7 +98,7 @@ public class Shoot : MonoBehaviour
         }
 
 
-        ctrl = transform.parent.GetComponent<Controler>();
+        ctrl = FindObjectOfType<Controler>();
     }
     private void Update()
     {
@@ -267,7 +267,7 @@ public class Shoot : MonoBehaviour
             bloom.tint.overrideState = true;
             bloom.tint.value = Color.red;
         }
-        ctrl.speed /= DecreaseSpeedFactor;
+        ctrl.speed *= DecreaseSpeedFactor;
         LazerGO.SetActive(false);
     }
 }
