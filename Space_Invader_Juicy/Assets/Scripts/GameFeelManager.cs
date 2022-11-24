@@ -15,9 +15,11 @@ public class GameFeelManager : MonoBehaviour
     public bool EnnemyAnimGF;
     public bool PopScoreGF;
     public bool BackgroundParticlesGF;
+    public bool LazerGF;
 
     public Volume Volume;
     public GameObject BGParticles;
+    public GameObject FuryBarScriptGO;
 
     private void Awake()
     {
@@ -76,6 +78,63 @@ public class GameFeelManager : MonoBehaviour
                     {
                         BGParticles.SetActive(false);
                     }
+                    break;
+                case KeyCode.Alpha8:
+                    LazerGF = !LazerGF;
+                    FuryBarScriptGO.SetActive(LazerGF);
+                    break;
+
+
+                case KeyCode.Slash:
+                    //ACTIVATE ALL EFFECTS
+                    FireGF = true;
+
+                    ShakeGF = true;
+
+                    PostProcessGF = true;
+
+                    EnnemyExplosionGF = true;
+
+                    EnnemyAnimGF = true;
+
+                    PopScoreGF = true;
+
+                    Volume.enabled = true;
+
+                    BackgroundParticlesGF = true;
+
+                    BGParticles.SetActive(true);
+
+                    LazerGF = true;
+
+                    FuryBarScriptGO.SetActive(true);
+
+                    break;
+
+                    case KeyCode.Exclaim:
+
+                    //DEACTIVATE ALL EFFECTS
+                    FireGF = false;
+
+                    ShakeGF = false;
+
+                    PostProcessGF = false;
+
+                    EnnemyExplosionGF = false;
+
+                    EnnemyAnimGF = false;
+
+                    PopScoreGF = false;
+
+                    Volume.enabled = false;
+
+                    BackgroundParticlesGF = false;
+
+                    BGParticles.SetActive(false);
+
+                    LazerGF = false;
+
+                    FuryBarScriptGO.SetActive(false);
                     break;
                 default:
                     Debug.Log("none");

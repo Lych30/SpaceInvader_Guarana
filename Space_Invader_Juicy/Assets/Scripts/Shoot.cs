@@ -109,12 +109,11 @@ public class Shoot : MonoBehaviour
             inputFire = true;
         }
         //anim.SetBool("Firing", inputFire && GameFeelManager.instance.FireGF);
-        if (furyBarScript)
+        if (furyBarScript && GameFeelManager.instance.LazerGF)
         {
             if(Input.GetKeyDown(KeyCode.L) && furyBarScript.FurySlider.value >= furyBarScript.FurySlider.maxValue)
             {
                 //AHAH big lazer go BRRRRRRR
-                
                 StartCoroutine(BigLazerGoBRRR());
             }
         }
@@ -134,8 +133,9 @@ public class Shoot : MonoBehaviour
                 if ((inputFireLeft || inputFireRight) && GatlingArrayVR.Length == 2)
                     GatlingParticlesVR(inputFireLeft, inputFireRight);
 
-                if (furyBarScript)
+                if (GameFeelManager.instance.LazerGF)
                     furyBarScript.AddFury(1);
+
                 if (!GatlingSound.isPlaying)
                 {
                     GatlingSound.Play();
