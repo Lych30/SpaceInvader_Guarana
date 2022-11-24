@@ -128,7 +128,10 @@ public class Shoot : MonoBehaviour
                 {
                     audio.Stop();
                 }
-                LazerSound.Play();
+
+                if(Time.timeScale != 0)
+                    LazerSound.Play();
+
                 StartCoroutine(BigLazerGoBRRR());
             }
         }
