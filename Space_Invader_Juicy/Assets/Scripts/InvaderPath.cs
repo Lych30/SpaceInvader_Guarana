@@ -13,6 +13,7 @@ public class InvaderPath : MonoBehaviour
         public float initialOffset;
 
         [HideInInspector] public Mesh mesh;
+        [HideInInspector] public Quaternion rotation;
     }
 
     [Header("Path Numbers")]
@@ -34,7 +35,6 @@ public class InvaderPath : MonoBehaviour
 
     public (Vector3 position, int index) GetNextPosition(int currentIndex)
     {
-        Debug.Log($"Current position : point[{currentIndex}] = {positions[currentIndex]}");
         if (positions.Count == 0) throw new IndexOutOfRangeException("No Points In InvaderPath");
         
         if (currentIndex == -1 || currentIndex >= positions.Count - 1)
@@ -116,6 +116,7 @@ public class InvaderPath : MonoBehaviour
                 }
                 else if (tempMesh != lane.mesh)
                 {
+                    lane.rotation = skin.transform.rotation;
                     lane.mesh = tempMesh;
                     enemyLanes[i] = lane;
                 }
@@ -132,7 +133,7 @@ public class InvaderPath : MonoBehaviour
                     pos.x + lane.initialOffset + n * lane.offset,
                     pos.y - lane.index * laneSize.y,
                     pos.z);
-                Gizmos.DrawMesh(lane.mesh, enemyPos, Quaternion.identity, Vector3.one * 1.75f);
+                Gizmos.DrawMesh(lane.mesh, enemyPos, lane.rotation, Vector3.one * 1.75f);
             }
         }
     }
