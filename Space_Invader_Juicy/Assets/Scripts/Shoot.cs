@@ -104,6 +104,9 @@ public class Shoot : MonoBehaviour
     }
     private void Update()
     {
+        if (Time.timeScale == 0)
+            return;
+
         if(Timer >= 0)
         {
             Timer -= Time.deltaTime;
