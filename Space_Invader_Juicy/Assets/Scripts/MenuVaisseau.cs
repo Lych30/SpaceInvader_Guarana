@@ -61,7 +61,8 @@ public class MenuVaisseau : MonoBehaviour
 
     public void ChangeAngle(bool rotateRight)
     {
-        Vector3 rotateVector = new Vector3(rotateValue, transform.rotation.y, transform.localEulerAngles.z);
+        //Vector3 rotateVector = new Vector3(rotateValue, transform.rotation.y, transform.localEulerAngles.z);
+        Vector3 rotateVector = new Vector3(rotateValue, transform.rotation.y, -90);
 
         if (rotateRight)
         {
