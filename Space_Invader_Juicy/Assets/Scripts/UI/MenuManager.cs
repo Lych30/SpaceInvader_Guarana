@@ -120,7 +120,9 @@ public class MenuManager : MonoBehaviour
             buttonToPunch.GetComponent<Button>().enabled = true;
 
             Application.Quit();
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
+#endif
         });
         
     }

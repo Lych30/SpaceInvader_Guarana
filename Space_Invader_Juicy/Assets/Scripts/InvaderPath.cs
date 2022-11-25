@@ -97,6 +97,7 @@ public class InvaderPath : MonoBehaviour
         SpawnLane(index);
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         // Draw Path preview
@@ -163,4 +164,5 @@ public class InvaderPath : MonoBehaviour
             }
         }
     }
+#endif
 }
